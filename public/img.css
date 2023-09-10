@@ -1,0 +1,11 @@
+img{
+    width: 60vw;
+    height: 70vh;
+    position: absolute;
+    opacity: 0.2;
+    background-image: cover;
+    z-index: -1;
+    margin: 260px;
+    margin-top:250px;
+    
+}

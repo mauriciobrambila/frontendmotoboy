@@ -1,0 +1,34 @@
+.barra{
+    display: block;
+    padding: 0;
+    margin: 0;
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 50px 20px 20px ;
+}
+
+.barra svg {
+    margin: 2px;
+}
+
+.barra input[type="text"]{
+display: inline;
+border: none;
+background-color: transparent;
+resize: none;
+outline: none;
+width: 95%;
+}
+
+.resultado {
+    width: 100%;
+}
+
+.resultado ul{
+    display: none;
+    position: center;
+    float: left;
+    background-color: whitesmoke;
+    width: 91%;
+}
+
