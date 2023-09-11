@@ -2,6 +2,7 @@
   "name": "motoboy",
   "version": "0.1.0",
   "homepage": "https://mauriciobrambila.github.io/cadastromotoboy",
+  "homepage": "https://mauriciobrambila.github.io/cadastroentrega",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
