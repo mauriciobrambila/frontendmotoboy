@@ -3,6 +3,7 @@ import { Form, Row, Col, Button, FormControl, FormLabel } from "react-bootstrap"
 import React from "react";
 import { urlBase } from "../assets/definicoes";
 import InputMask from "react-input-mask";
+import SelectionBox from "../componentes/busca/CaixaSelecao";
 
 const boxcadall_style = {
     padding: '5px',
@@ -14,6 +15,7 @@ const boxcadall_style = {
 export default function FormMotoBoy(props) {
     const [validado, setValidado] = useState(false);
     const [moto, setMoto] = useState(props.moto);
+    const [entregaSelecionado, setEntregaSelecionado] = useState({});
 
     function manipulaMudanca(e) {
         const elementForm = e.currentTarget;
@@ -138,6 +140,18 @@ export default function FormMotoBoy(props) {
                         </Form.Group>
                         <Form.Control.Feedback type="invalid">Informe o telefone</Form.Control.Feedback>
                     </Col>
+                    
+                    <Col>
+                        <Form.Group className="mb-3">
+                            <Form.Label><strong>Entrega</strong></Form.Label>
+                            <SelectionBox
+                            source={"https://129.146.68.51/aluno45-pfsii/entrega"}
+                            dataKey={"ID"}
+                            exhibitionField={"entrega"}
+                            selectFunction={setEntregaSelecionado}/>
+                        </Form.Group> 
+                    </Col>
+
                 </Row>
 
                 <Row>

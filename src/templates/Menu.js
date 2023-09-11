@@ -21,7 +21,7 @@ export default function Menu(props) {
                     <Nav className="me-auto">
                         <NavDropdown title="CADASTROS" id="basic-nav-dropdown">
                         <LinkContainer to="/cadastroMotoboy"><NavDropdown.Item><strong>Motoboy</strong></NavDropdown.Item></LinkContainer>
-                           
+                        <LinkContainer to="/cadastroEntrega"><NavDropdown.Item><strong>Entregas</strong></NavDropdown.Item></LinkContainer>  
                         </NavDropdown>
                     </Nav>
                     <Nav><font color="red">----------------------------</font></Nav>
