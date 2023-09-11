@@ -26,7 +26,7 @@ export default function TabelaMotoBoy(props) {
             <Container className="m-3">
                 <Row>
                     <Col>
-                        <Form.Control type="text" id="termoBusca" onChange={filtraMotoBoy} placeholder="Busque um Nome listado abaixo" />
+                        <Form.Control type="text" id="termoBusca" onChange={filtraMotoBoy} placeholder= "Busque um Nome listado abaixo" />
                     </Col>
 
                 </Row>
