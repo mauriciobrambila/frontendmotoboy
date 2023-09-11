@@ -99,8 +99,8 @@ export default function FormEntregas(props) {
                 <Col>
                         <Form.Group className="mb-3">
                             <Form.Label><strong>Entrega</strong></Form.Label>
-                            <Form.Control type="text" placeholder="Digite o tipo de Entrega. ex: peças, lanches" required value={entrega.entrega} id="entrega" onChange={manipulaMudanca} />
-                            <Form.Control.Feedback type="invalid"> Por Favor Informe a Entrega</Form.Control.Feedback>
+                            <Form.Control type="text" placeholder="Digite o tipo de Entrega. ex: peças, lanche, pizza" required value={entrega.entrega} id="entrega" onChange={manipulaMudanca} />
+                            <Form.Control.Feedback type="invalid"> Por Favor Informe o tipo de entrega</Form.Control.Feedback>
                         </Form.Group>
                 
                     </Col>
