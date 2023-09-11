@@ -1,18 +1,12 @@
 import { useState } from "react";
-import { Button, Form, Row, Col, Container, FormLabel, FormControl } from "react-bootstrap"
+import { Button, Form, Row, Col, FormLabel, FormControl } from "react-bootstrap"
 import React from "react";
 import { urlBase } from "../assets/definicoes";
 
-const boxcad_style = {
-    padding: '2px',
-    borderRadius: '10px',
-    border: '2px solid black',
-    width: '380px'
-}
 const boxcadall_style = {
     padding: '5px',
     borderRadius: '10px',
-    border: '3px solid black',
+    border: '3px solid red',
     height: '325px'
 }
 
@@ -77,9 +71,7 @@ export default function FormEntregas(props) {
 
     return (
         <div style={boxcadall_style}>
-            <Container className="text-center" style={boxcad_style}>
-                <h3>Cadastro de Entregas</h3>
-            </Container>
+            
             <Form noValidate validated={validado} onSubmit={manipulaSbmissao}>
                 <Row>
                     <Col>

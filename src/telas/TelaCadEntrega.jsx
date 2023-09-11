@@ -61,7 +61,7 @@ export default function TelaCadEntrega(props) {
         <Pagina>
             <Container className="border m-6">
                 <Alert variant={"secondary"} className="text-center m-3">
-                    <font size="6"><strong>Cadastro de Entregas</strong></font></Alert>
+                    <font size="5"><strong>Cadastro de Entregas</strong></font></Alert>
                 {
                     exibirTabela ?
                         <TabelaEntregas

@@ -2,7 +2,7 @@ import FormMotoBoy from "../formularios/FormCadMotoBoy";
 import Pagina from "../templates/Pagina";
 import TabelaMotoBoy from "../tabela/TabelaMotoBoy";
 import { useState, useEffect } from "react";
-import { Container } from "react-bootstrap";
+import { Container, Alert } from "react-bootstrap";
 import { urlBase } from "../assets/definicoes";
 
 export default function TelaCadMotoBoy(props) {
@@ -66,7 +66,8 @@ export default function TelaCadMotoBoy(props) {
         <Pagina>
             <Container className="border m-6">
                 
-                   
+            <Alert variant={"secondary"} className="text-center m-3">
+                    <font size="5"><strong>Cadastro de Motoboys</strong></font></Alert>
 
                 {
                     exibirTabela ?
