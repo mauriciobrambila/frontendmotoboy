@@ -145,7 +145,7 @@ export default function FormMotoBoy(props) {
                         <Form.Group className="mb-3">
                             <Form.Label><strong>Entrega</strong></Form.Label>
                             <SelectionBox
-                            source={"https://129.146.68.51/aluno45-pfsii/entrega"}
+                            source={"https://129.146.68.51/aluno45-pfsii/entregas"}
                             dataKey={"ID"}
                             exhibitionField={"entrega"}
                             selectFunction={setEntregaSelecionado}/>
