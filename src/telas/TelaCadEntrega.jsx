@@ -23,7 +23,7 @@ export default function TelaCadEntrega(props) {
     }
 
     function apagarEntrega(entrega) {
-        fetch(urlBase + "https://129.146.68.51/aluno45-pfsii/entrega", {
+        fetch(urlBase + "https://129.146.68.51/aluno45-pfsii/entregas", {
             method: "DELETE",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(entrega)
@@ -43,7 +43,7 @@ export default function TelaCadEntrega(props) {
     }
 
     useEffect(() => {
-        fetch(urlBase + "https://129.146.68.51/aluno45-pfsii/entrega", {
+        fetch(urlBase + "https://129.146.68.51/aluno45-pfsii/entregas", {
             method: "GET"
         }).then((resposta) => {
             return resposta.json();

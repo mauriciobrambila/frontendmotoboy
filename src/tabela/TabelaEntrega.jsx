@@ -6,7 +6,7 @@ export default function TabelaEntregas(props) {
     function filtraEntregas(e) {
         const termoBusca = e.currentTarget.value;
 
-        fetch(urlBase + "https://129.146.68.51/aluno45-pfsii/entrega", { method: "GET" })
+        fetch(urlBase + "https://129.146.68.51/aluno45-pfsii/entregas", { method: "GET" })
             .then((resposta) => { return resposta.json() })
             .then((listaEntregas) => {
                 if (Array.isArray(listaEntregas)) {
