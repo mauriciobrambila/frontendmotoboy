@@ -26,7 +26,7 @@ export default function FormEntregas(props) {
         if (form.checkValidity()) {
 
             if (!props.modoEdicao) {
-                fetch(urlBase + "http://129.146.68.51/aluno45-pfsii/entrega", {
+                fetch(urlBase + "https://129.146.68.51/aluno45-pfsii/entrega", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(entrega)
