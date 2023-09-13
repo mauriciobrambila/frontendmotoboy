@@ -29,7 +29,7 @@ export default function FormMotoBoy(props) {
         if (form.checkValidity()) {
 
             if (!props.modoEdicao) {
-                fetch(urlBase + "https://129.146.68.51/aluno45-pfsii/motos", {
+                fetch(urlBase + "http://129.146.68.51/aluno45-pfsii/motos", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(moto)
