@@ -7,7 +7,7 @@ import {useState, useEffect} from "react";
 
 export default function Pagina(props) {
 
-    const [motosSelecionado, setMotosSelecionado] = useState({});
+    const [setMotosSelecionado] = useState({});
         const [formValido, setFormValido] = useState(false);
         const [listaMotos, setListaMotos] = useState([]);
 
@@ -47,8 +47,6 @@ export default function Pagina(props) {
                 <Form noValidate validated={formValido} onSubmit={manipularSubmissao}></Form>
                 
             <Container>{props.children}</Container>
-
         </>
     );
-
 }

@@ -52,7 +52,6 @@ export default function TelaCadEntrega(props) {
                 setEntregas(dados);
             } 
             else {
-
             }
         });
     }, []);
@@ -60,7 +59,7 @@ export default function TelaCadEntrega(props) {
     return (
         <Pagina>
             <Container className="border m-6">
-                <Alert variant={"secondary"} className="text-center m-3">
+                <Alert variant={"secondary"} className="text-center m-4">
                     <font size="5"><strong>Cadastro de Entregas</strong></font></Alert>
                 {
                     exibirTabela ?

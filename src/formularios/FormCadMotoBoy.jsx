@@ -15,7 +15,7 @@ const boxcadall_style = {
 export default function FormMotoBoy(props) {
     const [validado, setValidado] = useState(false);
     const [moto, setMoto] = useState(props.moto);
-    const [entregaSelecionado, setEntregaSelecionado] = useState({});
+    const [setEntregaSelecionado] = useState({});
 
     function manipulaMudanca(e) {
         const elementForm = e.currentTarget;
@@ -49,7 +49,6 @@ export default function FormMotoBoy(props) {
                 })
             }
             else {
-
                 fetch(urlBase +"https://129.146.68.51/aluno45-pfsii/motos",  {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },
@@ -95,7 +94,6 @@ export default function FormMotoBoy(props) {
                         </Form.Group>
                         <Form.Control.Feedback type="invalid"> Por Favor Informe o Nome Completo!</Form.Control.Feedback>
                     </Col>
-
 
                     <Col>
                         <Form.Group className="mb-3" controlId="cpf">
@@ -151,12 +149,9 @@ export default function FormMotoBoy(props) {
                             selectFunction={setEntregaSelecionado}/>
                         </Form.Group> 
                     </Col>
-
                 </Row>
-
-                <Row>
-
-                </Row>
+            <Row>
+        </Row>
 
               <div className="btn-group" />
         <Row>
@@ -173,7 +168,6 @@ export default function FormMotoBoy(props) {
             </div></center>
           </col-2>
                 </Row>
-
             </Form>
         </div>
     );

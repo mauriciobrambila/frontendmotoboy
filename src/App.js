@@ -11,7 +11,6 @@ function App() {
           <Route path="/cadastroMotoboy" element={<TelaCadMotoboy/>}/>
           <Route path="/cadastroEntrega" element={<TelaCadEntrega/>}/>
           <Route path="/" element={<TelaMenu/>}/>
-  
         </Routes>
       </BrowserRouter>
     </div>

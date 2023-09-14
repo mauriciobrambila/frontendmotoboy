@@ -18,7 +18,7 @@ function SelectionBox({ source, dataKey, exhibitionField, selectFunction }) {
       console.log(newList, data)
     }
     fetchData()
-  }, [source])
+  })
 
   if (data.length === 0) {
     return <Spinner />
@@ -43,5 +43,4 @@ function SelectionBox({ source, dataKey, exhibitionField, selectFunction }) {
     </Container>
   );
 }
-
 export default SelectionBox;

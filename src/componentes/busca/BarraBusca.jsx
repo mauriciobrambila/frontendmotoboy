@@ -92,14 +92,11 @@ onClick={()=>{
                 {
                     item[campoChave] + '-' + item[campoBusca]
                 }
-
                 </li>
             })
         }
     </ul>
-
 </div>
-    
     </Container>
     );
 }

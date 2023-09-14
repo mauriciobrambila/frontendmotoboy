@@ -12,19 +12,20 @@ export default function TabelaEntregas(props) {
                 if (Array.isArray(listaEntregas)) {
                     const resultado = listaEntregas.filter((entrega) => entrega.entrega.toLowerCase().includes(termoBusca.toLowerCase()));
                     props.setEntregas(resultado);
-                }
-            });
+            }
+        });
     }
 
     return (
         <Container>
-            <Button onClick={() => {
-                props.exibirTabela(false);
-            }} variant="primary">
-                Cadastrar
-            </Button>
+            <center><Button className=" mt-6" 
+                onClick={() => {
+                    props.exibirTabela(false);
+                }}>
+                Cadastrar uma entrega
+                </Button></center>
             <Container>
-                <Row className="m-3">
+                <Row className="m-2">
                     <Form.Control type="text" placeholder="Busque uma entrega" id="termoBusca" onChange={filtraEntregas} />
                 </Row>
             </Container>
@@ -51,7 +52,7 @@ export default function TabelaEntregas(props) {
                                     </Button>{' '}
 
                                     <Button variant="danger" onClick={() => {
-                                        if (window.confirm('Confirma a Exclusão do Professor?')) {
+                                        if (window.confirm('Excluir este item?')) {
                                             props.excluirEntrega(entrega);
                                         }
                                     }}>
