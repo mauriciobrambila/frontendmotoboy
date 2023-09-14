@@ -12,7 +12,7 @@ export default function Pagina(props) {
         const [listaMotos, setListaMotos] = useState([]);
 
         useEffect(() => {
-            fetch("http://129.146.68.51/aluno45-pfsii/motos", { method: "GET" })
+            fetch("http://129.146.68.51/aluno45-pfsii/entrega", { method: "GET" })
                 .then((resposta) => {
                     return resposta.json();
                 }).then((dados) => {
