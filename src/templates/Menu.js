@@ -8,7 +8,7 @@ export default function Menu(props) {
         justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: '#f0f0f0',
-        padding: '10px',
+        padding: '2px',
         fontWeight: 'bolder',
       };
     return (
@@ -25,7 +25,6 @@ export default function Menu(props) {
                 </NavDropdown>
                     </Nav>
                     <Nav><font color="red">----------------------------</font></Nav>
-                   
                     <Nav><font color="red">-------------------------------------</font></Nav>
                     <Nav>
                         <Nav.Link href="/"><strong><font color="red">VOLTAR</font></strong></Nav.Link>

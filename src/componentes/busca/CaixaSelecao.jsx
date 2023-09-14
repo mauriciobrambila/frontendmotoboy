@@ -19,6 +19,7 @@ function SelectionBox({ source, dataKey, exhibitionField, selectFunction }) {
     }
     fetchData()
   })
+
   if (data.length === 0) {
     return <Spinner />
   }

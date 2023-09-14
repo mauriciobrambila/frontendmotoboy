@@ -24,7 +24,6 @@ export default function FormEntregas(props) {
     function manipulaSbmissao(evento) {
         const form = evento.currentTarget;
         if (form.checkValidity()) {
-
             if (!props.modoEdicao) {
                 fetch(urlBase + "https://129.146.68.51/aluno45-pfsii/entrega", {
                     method: "POST",
@@ -46,7 +45,6 @@ export default function FormEntregas(props) {
                 })
             }
             else {
-
                 fetch(urlBase + "https://129.146.68.51/aluno45-pfsii/entrega", {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },
@@ -57,7 +55,6 @@ export default function FormEntregas(props) {
                     props.exibirTabela(true);
                 }).then(() => {
                     window.location.reload();
-
                 });
             }
             setValidado(false);
@@ -83,35 +80,26 @@ export default function FormEntregas(props) {
                         >
                         </FormControl>
                     </Col>
-
                 </Row>
-
-                <Row>
-
+            <Row>
                 <Col>
                         <Form.Group className="mb-3">
                             <Form.Label><strong>Entrega</strong></Form.Label>
                             <Form.Control type="text" placeholder="Digite o tipo de Entrega. ex: peças, lanche, pizza" required value={entrega.entrega} id="entrega" onChange={manipulaMudanca} />
                             <Form.Control.Feedback type="invalid"> Por Favor Informe o tipo de entrega</Form.Control.Feedback>
                         </Form.Group>
-                
                     </Col>
-                    
                 </Row>
 
                 <Row>
-                <col-2>
-            <center><div className="btn-group">
-                    <center>
+                    <center><Col>
                         <Button type="submit" variant="primary">{props.modoEdicao ? 'Atualizar' : 'Cadastrar'}</Button>
-                        </center>
-              <center>
+                    </Col>
+                        <Col>
                             <Button type="submit" variant="primary" onClick={() => {
                                 props.exibirTabela(true);
                             }}>Voltar</Button>
-                        </center>
-                        </div></center>
-          </col-2>
+                        </Col></center>
                 </Row>
             </Form>
         </div>

@@ -1,8 +1,6 @@
 import { Button, Container, Table, Row, Col, Form } from "react-bootstrap";
 import { urlBase } from "../assets/definicoes";
 
-
-
 export default function TabelaMotoBoy(props) {
 
     function filtraMotoBoy(e) {
@@ -18,12 +16,9 @@ export default function TabelaMotoBoy(props) {
             });
     }
 
-
-
     return (
         <Container>
-
-            <Container className="m-3">
+            <Container className="m-1">
                 <Row>
                     <Col>
                         <Form.Control type="text" id="termoBusca" onChange={filtraMotoBoy} placeholder= "Pesquize um nome na lista abaixo" />
