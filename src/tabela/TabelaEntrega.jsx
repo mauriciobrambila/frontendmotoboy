@@ -18,13 +18,13 @@ export default function TabelaEntregas(props) {
 
     return (
         <Container>
-            <Button onClick={() => {
+            <center><Button className="mb-8 mt-6" onClick={() => {
                 props.exibirTabela(false);
             }} variant="primary">
                 Cadastrar
-            </Button>
+            </Button></center>
             <Container>
-                <Row className="m-3">
+                <Row className="m-2">
                     <Form.Control type="text" placeholder="Busque uma entrega" id="termoBusca" onChange={filtraEntregas} />
                 </Row>
             </Container>
@@ -51,7 +51,7 @@ export default function TabelaEntregas(props) {
                                     </Button>{' '}
 
                                     <Button variant="danger" onClick={() => {
-                                        if (window.confirm('Confirma a Exclusão do Professor?')) {
+                                        if (window.confirm('Excluir entrega?')) {
                                             props.excluirEntrega(entrega);
                                         }
                                     }}>

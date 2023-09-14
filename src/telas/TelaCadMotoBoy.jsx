@@ -66,7 +66,7 @@ export default function TelaCadMotoBoy(props) {
         <Pagina>
             <Container className="border m-6">
                 
-            <Alert variant={"secondary"} className="text-center m-3">
+            <Alert variant={""} className="text-center m-3">
                     <font size="5"><strong>Cadastro de Motoboys</strong></font></Alert>
 
                 {
@@ -78,12 +78,12 @@ export default function TelaCadMotoBoy(props) {
                             editarMoto={edicaoMoto}
                             excluirMoto={apagarMoto}
                             setModoEdicao={setModoEdicao}
-                            edicaoMotos={setMotoEdicao}
+                            edicaoMoto={setMotoEdicao}
                         />
                         :
                         <FormMotoBoy
-                            setMotos={setMotos}
                             listaMotoBoy={motos}
+                            setMotos={setMotos}
                             exibirTabela={setExibirTabela}
                             modoEdicao={modoEdicao}
                             setModoEdicao={setModoEdicao}
