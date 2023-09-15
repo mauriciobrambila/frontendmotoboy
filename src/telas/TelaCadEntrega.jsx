@@ -68,7 +68,7 @@ export default function TelaCadEntrega(props) {
                     exibirTabela ?
                         <TabelaEntregas
                             setEntregas={setEntregas}
-                            listaEntregas={entregas}
+                            listaEntrega={entregas}
                             exibirTabela={setExibirTabela}
                             editarEntrega={edicaoEntrega}
                             excluirEntrega={apagarEntrega}
@@ -76,7 +76,7 @@ export default function TelaCadEntrega(props) {
                             edicaoEntrega={setEntregaEdicao} />
                         :
                         <FormEntregas
-                            listaEntregas={entregas}
+                            listaEntrega={entregas}
                             setEntregas={setEntregas}
                             exibirTabela={setExibirTabela}
                             modoEdicao={modoEdicao}

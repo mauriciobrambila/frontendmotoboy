@@ -8,9 +8,9 @@ export default function TabelaEntregas(props) {
 
         fetch(urlBase + "https://129.146.68.51/aluno45-pfsii/entrega", { method: "GET" })
             .then((resposta) => { return resposta.json() })
-            .then((listaEntregas) => {
-                if (Array.isArray(listaEntregas)) {
-                    const resultado = listaEntregas.filter((entrega) => entrega.entrega.toLowerCase().includes(termoBusca.toLowerCase()));
+            .then((listaEntrega) => {
+                if (Array.isArray(listaEntrega)) {
+                    const resultado = listaEntrega.filter((entrega) => entrega.entrega.toLowerCase().includes(termoBusca.toLowerCase()));
                     props.setEntregas(resultado);
                 }
             });
@@ -38,7 +38,7 @@ export default function TabelaEntregas(props) {
                 </thead>
                 <tbody>
                     {
-                        props.listaEntregas?.map((entrega) => {
+                        props.listaEntrega?.map((entrega) => {
                             return <tr key={entrega.ID}>
                                 <td>{entrega.ID}</td>
                                 <td>{entrega.entrega}</td>
