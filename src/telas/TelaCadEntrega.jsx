@@ -1,6 +1,6 @@
 import Pagina from "../templates/Pagina";
-import FormEntregas from "../formularios/FormCadEntregas";
-import TabelaEntregas from "../tabela/TabelaEntrega";
+import FormEntrega from "../formularios/FormCadEntregas";
+import TabelaEntrega from "../tabela/TabelaEntrega";
 import { useState, useEffect } from "react";
 import { Container, Alert } from "react-bootstrap";
 import { urlBase } from "../assets/definicoes";
@@ -66,7 +66,7 @@ export default function TelaCadEntrega(props) {
                 </Alert>
                 {
                     exibirTabela ?
-                        <TabelaEntregas
+                        <TabelaEntrega
                             setEntregas={setEntregas}
                             listaEntrega={entregas}
                             exibirTabela={setExibirTabela}
@@ -75,7 +75,7 @@ export default function TelaCadEntrega(props) {
                             setModoEdicao={setModoEdicao}
                             edicaoEntrega={setEntregaEdicao} />
                         :
-                        <FormEntregas
+                        <FormEntrega
                             listaEntrega={entregas}
                             setEntregas={setEntregas}
                             exibirTabela={setExibirTabela}
