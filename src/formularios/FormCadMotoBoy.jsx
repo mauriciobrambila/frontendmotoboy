@@ -15,7 +15,7 @@ const boxcadall_style = {
 export default function FormMotoBoy(props) {
     const [validado, setValidado] = useState(false);
     const [moto, setMoto] = useState(props.moto);
-    const [setEntregaSelecionado] = useState({});
+    const [entregaSelecionado, setEntregaSelecionado] = useState({});
 
     function manipulaMudanca(e) {
         const elementForm = e.currentTarget;
