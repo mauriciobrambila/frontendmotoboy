@@ -1,5 +1,5 @@
 import Pagina from "../templates/Pagina";
-import FormEntregas from "../formularios/FormEntregas";
+import FormEntregas from "../formularios/FormCadEntregas";
 import TabelaEntregas from "../tabela/TabelaEntrega";
 import { useState, useEffect } from "react";
 import { Container, Alert } from "react-bootstrap";
