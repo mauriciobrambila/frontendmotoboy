@@ -34,7 +34,7 @@ export default function FormEntregas(props) {
                 }).then((dados) => {
                     if (dados.status) {
                         props.setModoEdicao(false);
-                        let entregas = props.listaEntregas;
+                        let entregas = props.listaEntrega;
                         entregas.push(entrega);
                         props.exibirTabela(true);
                         window.location.reload();
