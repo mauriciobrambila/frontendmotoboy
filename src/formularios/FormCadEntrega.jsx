@@ -91,15 +91,20 @@ export default function FormEntregas(props) {
                     </Col>
                 </Row>
 
-                <Row>
-                    <center><Col>
+                <div className="btn-group" />
+        <Row>
+          <col-2>
+            <center><div className="btn-group">
+              <center>
                         <Button type="submit" variant="primary">{props.modoEdicao ? 'Atualizar' : 'Cadastrar'}</Button>
-                    </Col>
-                        <Col>
+                        </center>
+              <center>
                             <Button type="submit" variant="primary" onClick={() => {
                                 props.exibirTabela(true);
                             }}>Voltar</Button>
-                        </Col></center>
+                       </center>
+            </div></center>
+          </col-2>
                 </Row>
             </Form>
         </div>
