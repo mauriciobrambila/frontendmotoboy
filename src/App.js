@@ -8,8 +8,8 @@ function App() {
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/cadastroMotoboy" element={<TelaCadMotoboy/>}/>
-          <Route path="/cadastroEntrega" element={<TelaCadEntrega/>}/>
+          <Route path="/cadastromotoboy" element={<TelaCadMotoboy/>}/>
+          <Route path="/cadastroentrega" element={<TelaCadEntrega/>}/>
           <Route path="/" element={<TelaMenu/>}/>
         </Routes>
       </BrowserRouter>
