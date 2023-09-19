@@ -83,7 +83,7 @@ export default function TelaCadEntrega(props) {
                             setModoEdicao={setModoEdicao}
                             atualizando={atualizando}
                             entrega={entregaEmEdicao}
-                            edicaoEntregao={setModoEdicao} />
+                            edicaoEntrega={setModoEdicao} />
                 }
             </Container>
         </Pagina>
