@@ -76,8 +76,7 @@ export default function FormEntregas(props) {
                         <FormControl
                             disabled
                             value={entrega.ID}
-                            id="ID"
-                        >
+                            id="ID">
                         </FormControl>
                     </Col>
                 </Row>

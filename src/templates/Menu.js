@@ -18,7 +18,7 @@ export default function Menu(props) {
                 <LinkContainer to="/" ><Navbar.Brand><font color="RED"><strong>HOME</strong></font></Navbar.Brand></LinkContainer>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                <Nav><font color="black">----------------------------------------------------------------</font></Nav>
+                <Nav><font color="black">------------------------------------------------------</font></Nav>
                 <NavbarCollapse><LinkContainer to="/cadastromotoboy"><NavDropdown.Item><strong><font color="white">Motoboy</font></strong></NavDropdown.Item></LinkContainer></NavbarCollapse>
                 <NavbarCollapse><LinkContainer to="/cadastroentrega"><NavDropdown.Item><strong><font color="white">Entregas</font></strong></NavDropdown.Item></LinkContainer></NavbarCollapse>
 
