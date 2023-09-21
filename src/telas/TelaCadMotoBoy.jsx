@@ -64,10 +64,8 @@ export default function TelaCadMotoBoy(props) {
     return (
         <Pagina>
             <Container className="border m-6">
-                
-            <Alert variant={""} className="text-center m-3">
+                <Alert variant={""} className="text-center m-3">
                     <font size="5"><strong>Cadastro de Motoboys</strong></font></Alert>
-
                 {
                     exibirTabela ?
                         <TabelaMotoBoy

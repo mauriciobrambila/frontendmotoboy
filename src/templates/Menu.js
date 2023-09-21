@@ -1,5 +1,6 @@
 import { Container, Navbar, Nav, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import NavbarCollapse from "react-bootstrap/esm/NavbarCollapse";
 import React from "react";
 
 export default function Menu(props) {
@@ -16,20 +17,13 @@ export default function Menu(props) {
             <Container >
                 <LinkContainer to="/" ><Navbar.Brand><font color="RED"><strong>HOME</strong></font></Navbar.Brand></LinkContainer>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Nav><font color="red">----------------------------------------------------------------</font></Nav>
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
-                <NavDropdown title="CADASTROS" id="basic-nav-dropdown">    
-                <LinkContainer to="/cadastromotoboy"><NavDropdown.Item><strong>Motoboy</strong></NavDropdown.Item></LinkContainer>
-                <LinkContainer to="/cadastroentrega"><NavDropdown.Item><strong>Entregas</strong></NavDropdown.Item></LinkContainer>  
-                </NavDropdown>
-                    </Nav>
-                    <Nav><font color="red">----------------------------</font></Nav>
-                    <Nav><font color="red">-------------------------------------</font></Nav>
-                    <Nav>
-                        <Nav.Link href="/"><strong><font color="red">VOLTAR</font></strong></Nav.Link>
-                    </Nav>
-                </Navbar.Collapse>
+                <Nav><font color="red">--------------------------------------------------------------------</font></Nav>
+                <NavbarCollapse><LinkContainer to="/cadastromotoboy"><NavDropdown.Item><strong><font color="white">Motoboy</font></strong></NavDropdown.Item></LinkContainer></NavbarCollapse>
+                <Nav><font color="red">-----------------------------------------------------------------------</font></Nav>
+                <NavbarCollapse><LinkContainer to="/cadastroentrega"><NavDropdown.Item><strong><font color="white">Entregas</font></strong></NavDropdown.Item></LinkContainer></NavbarCollapse>
+
+                    </Navbar.Collapse>
             </Container>
         </Navbar>
     );

@@ -27,7 +27,6 @@ export default function FormMotoBoy(props) {
     function manipulaSbmissao(evento) {
         const form = evento.currentTarget;
         if (form.checkValidity()) {
-
             if (!props.modoEdicao) {
                 fetch(urlBase + "https://129.146.68.51/aluno45-pfsii/motos", {
                     method: "POST",
@@ -73,9 +72,7 @@ export default function FormMotoBoy(props) {
 
     return (
         <div style={boxcadall_style} >
-           
             <Form noValidate validated={validado} onSubmit={manipulaSbmissao}>
-
                 <Row>
                 <Col>
                     <FormLabel>ID</FormLabel>

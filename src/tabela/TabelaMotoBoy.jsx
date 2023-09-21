@@ -5,7 +5,6 @@ export default function TabelaMotoBoy(props) {
 
     function filtraMotoBoy(e) {
         const termoBusca = e.currentTarget.value;
-
         fetch(urlBase + "https://129.146.68.51/aluno45-pfsii/motos",  { method: "GET" })
             .then((resposta) => { return resposta.json() })
             .then((listaMotoBoy) => {
@@ -80,11 +79,9 @@ export default function TabelaMotoBoy(props) {
            <center><Button className="mb-4 mt-2"
                 onClick={() => {
                     props.exibirTabela(false);
-
                 }}>
                 Cadastrar motoboy
             </Button></center>
-
         </Container>
     );
 }
