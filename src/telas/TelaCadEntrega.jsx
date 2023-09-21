@@ -3,7 +3,6 @@ import FormEntrega from "../formularios/FormCadEntrega";
 import TabelaEntrega from "../tabela/TabelaEntrega";
 import { useState, useEffect } from "react";
 import { Container, Alert } from "react-bootstrap";
-import { urlBase } from "../assets/definicoes";
 
 export default function TelaCadEntrega(props) {
     const [exibirTabela, setExibirTabela] = useState(true);
@@ -23,7 +22,7 @@ export default function TelaCadEntrega(props) {
     }
 
     function apagarEntrega(entrega) {
-        fetch(urlBase + "https://129.146.68.51/aluno45-pfsii/entrega", {
+        fetch( "https://129.146.68.51/aluno45-pfsii/entrega", {
             method: "DELETE",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(entrega)
@@ -43,7 +42,7 @@ export default function TelaCadEntrega(props) {
     }
 
     useEffect(() => {
-        fetch(urlBase + "https://129.146.68.51/aluno45-pfsii/entrega", {
+        fetch( "https://129.146.68.51/aluno45-pfsii/entrega", {
             method: "GET"
         }).then((resposta) => {
             return resposta.json();

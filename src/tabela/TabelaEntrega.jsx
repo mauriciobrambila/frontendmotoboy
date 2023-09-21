@@ -1,11 +1,10 @@
 import { Button, Container, Table, Form, Row } from "react-bootstrap";
-import { urlBase } from "../assets/definicoes";
 
 export default function TabelaEntregas(props) {
     
     function filtraEntregas(e) {
         const termoBusca = e.currentTarget.value;
-        fetch(urlBase + "https://129.146.68.51/aluno45-pfsii/entrega", { method: "GET" })
+        fetch( "https://129.146.68.51/aluno45-pfsii/entrega", { method: "GET" })
             .then((resposta) => { return resposta.json() })
             .then((listaEntrega) => {
                 if (Array.isArray(listaEntrega)) {

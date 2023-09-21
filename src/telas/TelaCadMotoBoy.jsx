@@ -3,7 +3,6 @@ import Pagina from "../templates/Pagina";
 import TabelaMotoBoy from "../tabela/TabelaMotoBoy";
 import { useState, useEffect } from "react";
 import { Container, Alert } from "react-bootstrap";
-import { urlBase } from "../assets/definicoes";
 
 export default function TelaCadMotoBoy(props) {
     const [exibirTabela, setExibirTabela] = useState(true);
@@ -28,7 +27,7 @@ export default function TelaCadMotoBoy(props) {
     }
 
     function apagarMoto(moto) {
-        fetch(urlBase + "https://129.146.68.51/aluno45-pfsii/motos",  {
+        fetch( "https://129.146.68.51/aluno45-pfsii/motos",  {
             method: "DELETE",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(moto)
@@ -47,7 +46,7 @@ export default function TelaCadMotoBoy(props) {
     }
 
     useEffect(() => {
-        fetch(urlBase + "https://129.146.68.51/aluno45-pfsii/motos",  {
+        fetch( "https://129.146.68.51/aluno45-pfsii/motos",  {
             method: "GET"
         }).then((resposta) => {
             return resposta.json();

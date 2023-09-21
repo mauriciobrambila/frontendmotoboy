@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Form, Row, Col, Button, FormControl, FormLabel } from "react-bootstrap";
 import React from "react";
-import { urlBase } from "../assets/definicoes";
 import InputMask from "react-input-mask";
 import SelectionBox from "../componentes/busca/CaixaSelecao";
 
@@ -28,7 +27,7 @@ export default function FormMotoBoy(props) {
         const form = evento.currentTarget;
         if (form.checkValidity()) {
             if (!props.modoEdicao) {
-                fetch(urlBase + "https://129.146.68.51/aluno45-pfsii/motos", {
+                fetch( "https://129.146.68.51/aluno45-pfsii/motos", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(moto)
@@ -48,7 +47,7 @@ export default function FormMotoBoy(props) {
                 })
             }
             else {
-                fetch(urlBase +"https://129.146.68.51/aluno45-pfsii/motos",  {
+                fetch( "https://129.146.68.51/aluno45-pfsii/motos",  {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(moto)

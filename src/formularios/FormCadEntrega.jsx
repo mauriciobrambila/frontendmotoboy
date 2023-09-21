@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Button, Form, Row, Col, FormLabel, FormControl } from "react-bootstrap"
 import React from "react";
-import { urlBase } from "../assets/definicoes";
 
 const boxcadall_style = {
     padding: '5px',
@@ -25,7 +24,7 @@ export default function FormEntregas(props) {
         const form = evento.currentTarget;
         if (form.checkValidity()) {
             if (!props.modoEdicao) {
-                fetch(urlBase + "https://129.146.68.51/aluno45-pfsii/entrega", {
+                fetch( "https://129.146.68.51/aluno45-pfsii/entrega", {
                     method: "POST",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(entrega)
@@ -45,7 +44,7 @@ export default function FormEntregas(props) {
                 })
             }
             else {
-                fetch(urlBase + "https://129.146.68.51/aluno45-pfsii/entrega", {
+                fetch( "https://129.146.68.51/aluno45-pfsii/entrega", {
                     method: "PUT",
                     headers: { "Content-Type": "application/json" },
                     body: JSON.stringify(entrega)
@@ -80,10 +79,26 @@ export default function FormEntregas(props) {
                         </FormControl>
                     </Col>
                 </Row>
-            <Row>
+                <Row>
+                <Col>
+                        <Form.Group className="mb-3" controlId="nome">
+                            <Form.Label><strong>Nome do cliente</strong></Form.Label>
+                            <Form.Control type="text" placeholder="Nome Completo" required value={entrega.nome} id="nome" onChange={manipulaMudanca} />
+                        </Form.Group>
+                        <Form.Control.Feedback type="invalid"> Por Favor Informe o Nome Completo!</Form.Control.Feedback>
+                    </Col>
+
+                    <Col>
+                        <Form.Group className="mb-3" controlId="endereco">
+                            <Form.Label><strong>Endereço</strong></Form.Label>
+                            <Form.Control type="text" placeholder="Av. Brasil " required value={entrega.endereco} id="endereco" onChange={manipulaMudanca} />
+                        </Form.Group>
+                        <Form.Control.Feedback type="invalid">  Informe o endereço</Form.Control.Feedback>
+                    </Col>
+            
                 <Col>
                         <Form.Group className="mb-3">
-                            <Form.Label><strong>Entrega</strong></Form.Label>
+                            <Form.Label><strong>Tipo de entrega</strong></Form.Label>
                             <Form.Control type="text" placeholder="Digite o tipo de Entrega. ex: peças, lanche, pizza" required value={entrega.entrega} id="entrega" onChange={manipulaMudanca} />
                             <Form.Control.Feedback type="invalid"> Por Favor Informe o tipo de entrega</Form.Control.Feedback>
                         </Form.Group>
