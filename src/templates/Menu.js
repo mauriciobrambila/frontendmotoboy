@@ -16,9 +16,9 @@ export default function Menu(props) {
         <Navbar style={navbarStyle} bg="black" variant="dark" expand="lg">
             <Container >
                            
-            <NavbarCollapse><LinkContainer to="/motoboy"><NavDropdown.Item><strong><font color="white">Motoboy</font></strong>
+            <NavbarCollapse><LinkContainer to="/cadastromotoboy"><NavDropdown.Item><strong><font color="white">Motoboy</font></strong>
                 </NavDropdown.Item></LinkContainer></NavbarCollapse>
-            <NavbarCollapse><LinkContainer to="/entrega"><NavDropdown.Item><strong><font color="white">Entregas</font></strong>
+            <NavbarCollapse><LinkContainer to="/cadastroentrega"><NavDropdown.Item><strong><font color="white">Entregas</font></strong>
                 </NavDropdown.Item></LinkContainer></NavbarCollapse>
                   
             </Container>

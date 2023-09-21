@@ -1,15 +1,16 @@
 import TelaMenu from "./telas/TelaMenu";
 import TelaCadMotoboy from "./telas/TelaCadMotoBoy";
 import TelaCadEntrega from "./telas/TelaCadEntrega";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
+import { Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
     <div>
-      <BrowserRouter>
+       <BrowserRouter>
         <Routes>
-          <Route path="/entrega" element={<TelaCadEntrega/>}/>
-          <Route path="/motoboy" element={<TelaCadMotoboy/>}/>
+          <Route path="/cadastroentrega" element={<TelaCadEntrega/>}></Route>
+          <Route path="/cadastromotoboy" element={<TelaCadMotoboy/>}></Route>
           <Route path="/" element={<TelaMenu/>}/>
         </Routes>
       </BrowserRouter>
