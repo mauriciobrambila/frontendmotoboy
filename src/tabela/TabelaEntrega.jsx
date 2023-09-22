@@ -1,14 +1,16 @@
 import { Button, Container, Table, Form, Row } from "react-bootstrap";
+import { urlBase } from "../assets/definicoes";
 
 export default function TabelaEntregas(props) {
     
     function filtraEntregas(e) {
         const termoBusca = e.currentTarget.value;
-        fetch( "https://129.146.68.51/aluno45-pfsii/entrega", { method: "GET" })
+
+        fetch(urlBase + "https://129.146.68.51/aluno45-pfsii/entrega", { method: "GET" })
             .then((resposta) => { return resposta.json() })
-            .then((listaEntrega) => {
-                if (Array.isArray(listaEntrega)) {
-                    const resultado = listaEntrega.filter((entrega) => entrega.entrega.toLowerCase().includes(termoBusca.toLowerCase()));
+            .then((listaEntregas) => {
+                if (Array.isArray(listaEntregas)) {
+                    const resultado = listaEntregas.filter((entrega) => entrega.entrega.toLowerCase().includes(termoBusca.toLowerCase()));
                     props.setEntregas(resultado);
                 }
             });
@@ -16,14 +18,14 @@ export default function TabelaEntregas(props) {
 
     return (
         <Container>
-            <center><Button className="mb-8 mt-6" onClick={() => {
+            <center><Button onClick={() => {
                 props.exibirTabela(false);
             }} variant="primary">
                 Cadastrar
             </Button></center>
             <Container>
-                <Row className="m-2">
-                    <Form.Control type="text" placeholder="Busque uma entrega" id="termoBusca" onChange={filtraEntregas} />
+                <Row className="m-3">
+                    <Form.Control type="text" placeholder="Busque pela entrega" id="termoBusca" onChange={filtraEntregas} />
                 </Row>
             </Container>
             <Table striped bordered hover>
@@ -31,12 +33,12 @@ export default function TabelaEntregas(props) {
                     <tr>
                         <th>ID</th>
                         <th>Entrega</th>
-                        <th>Edita / Deleta</th>
+                        <th>Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        props.listaEntrega?.map((entrega) => {
+                        props.listaEntregas?.map((entrega) => {
                             return <tr key={entrega.ID}>
                                 <td>{entrega.ID}</td>
                                 <td>{entrega.entrega}</td>
@@ -49,11 +51,11 @@ export default function TabelaEntregas(props) {
                                     </Button>{' '}
 
                                     <Button variant="danger" onClick={() => {
-                                        if (window.confirm('Excluir entrega?')) {
+                                        if (window.confirm('Confirma a Exclusão do motoboy?')) {
                                             props.excluirEntrega(entrega);
                                         }
                                     }}>
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-x-square" viewBox="0 0 16 16">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-square" viewBox="0 0 16 16">
                                             <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
                                             <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z" />
                                         </svg>

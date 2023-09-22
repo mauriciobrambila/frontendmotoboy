@@ -19,7 +19,6 @@ export default function BarraBusca({placeHolder,
                             }
                         )
                     );
-
         let componenteResultado = document.querySelector('[data-resultado]');
         if (dadosLista.length > 0){
             componenteResultado.style.display='block';
@@ -97,6 +96,6 @@ onClick={()=>{
         }
     </ul>
 </div>
-     </Container>
+      </Container>
     );
 }

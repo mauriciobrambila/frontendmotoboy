@@ -1,15 +1,16 @@
-import FormMotoBoy from "../formularios/FormCadMotoBoy";
 import Pagina from "../templates/Pagina";
-import TabelaMotoBoy from "../tabela/TabelaMotoBoy";
+import FormMotoboy from "../formularios/FormMotoboy";
+import TabelaMotoboys from "../tabela/TabelaMotoboy";
 import { useState, useEffect } from "react";
 import { Container, Alert } from "react-bootstrap";
+import { urlBase } from "../assets/definicoes";
 
-export default function TelaCadMotoBoy(props) {
+export default function TelaCadMotoboy(props) {
     const [exibirTabela, setExibirTabela] = useState(true);
-    const [motos, setMotos] = useState([]);
+    const [motoboys, setMotoboys] = useState([]);
     const [modoEdicao, setModoEdicao] = useState(false);
     const [atualizando, setAtualizando] = useState(false);
-    const [motoEmEdicao, setMotoEdicao] = useState({
+    const [motoboyEmEdicao, setMotoboyEdicao] = useState({
         ID: '',
         nome: '',
         cpf: '',
@@ -19,40 +20,41 @@ export default function TelaCadMotoBoy(props) {
         fone: '',
     })
 
-    function edicaoMoto(moto) {
+    function edicaoMotoboy(motoboy) {
         setAtualizando(true);
-        setMotoEdicao(moto);
+        setMotoboyEdicao(motoboy);
         setExibirTabela(false);
         setModoEdicao(true);
     }
 
-    function apagarMoto(moto) {
-        fetch( "https://129.146.68.51/aluno45-pfsii/motos",  {
+    function apagarMotoboy(motoboy) {
+        fetch(urlBase +"https://129.146.68.51/aluno45-pfsii/motoboy", {
             method: "DELETE",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(moto)
+            body: JSON.stringify(motoboy)
         }).then((resposta) => {
             return resposta.json();
         }).then((retorno) => {
             if (retorno.mensagem) {
-                alert("MotoBoy excluído");
+                alert("Motoboy excluído");
                 setExibirTabela(true);
                 window.location.reload();
             }
             else {
                 alert("Não foi possível excluir")
+                
             }
         })
     }
 
     useEffect(() => {
-        fetch( "https://129.146.68.51/aluno45-pfsii/motos",  {
+        fetch(urlBase + "https://129.146.68.51/aluno45-pfsii/motoboy", {
             method: "GET"
         }).then((resposta) => {
             return resposta.json();
         }).then((dados) => {
             if (Array.isArray(dados)) {
-                setMotos(dados);
+                setMotoboys(dados);
             }
             else {
 
@@ -60,35 +62,33 @@ export default function TelaCadMotoBoy(props) {
         });
     }, []);
 
-    return (
+    return(
         <Pagina>
             <Container className="border m-6">
                 <Alert variant={""} className="text-center m-3">
-                    <font size="5"><strong>Cadastro de Motoboys</strong></font></Alert>
+                    <font size="5"><strong>Cadastro de motoboys</strong></font></Alert>
                 {
                     exibirTabela ?
-                        <TabelaMotoBoy
-                            setMotos={setMotos}
-                            listaMotoBoy={motos}
+                        <TabelaMotoboys 
+                            listaMotoboys={motoboys}
+                            setMotoboys={setMotoboys}
                             exibirTabela={setExibirTabela}
-                            editarMoto={edicaoMoto}
-                            excluirMoto={apagarMoto}
+                            editarMotoboy={edicaoMotoboy}
+                            excluirMotoboy={apagarMotoboy}
                             setModoEdicao={setModoEdicao}
-                            edicaoMoto={setMotoEdicao}
-                        />
+                            edicaoMotoboy={setMotoboyEdicao} />
                         :
-                        <FormMotoBoy
-                            listaMotoBoy={motos}
-                            setMotos={setMotos}
+                        <FormMotoboy
+                            listaMotoboys={motoboys}
+                            setMotoboys={setMotoboys}
                             exibirTabela={setExibirTabela}
                             modoEdicao={modoEdicao}
                             setModoEdicao={setModoEdicao}
                             atualizando={atualizando}
-                            moto={motoEmEdicao}
-                            edicaoMoto={setModoEdicao}
-                        />
+                            motoboy={motoboyEmEdicao}
+                            edicaoMotoboy={setModoEdicao} />
                 }
             </Container>
         </Pagina>
     );
-}
+}    

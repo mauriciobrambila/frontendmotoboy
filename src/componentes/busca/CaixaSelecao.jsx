@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Container, Form, Row, Col, Spinner } from 'react-bootstrap';
 
-function SelectionBox({ source, dataKey, exhibitionField, selectFunction }) {
+function SelectionBox({ source, dataKey, exhibitionField, selectFunction, entregaSelect, motoboy }) {
   const [selectedValue, setSelectedValue] = useState("");
   const [data, setData] = useState([]);
 
@@ -18,7 +18,7 @@ function SelectionBox({ source, dataKey, exhibitionField, selectFunction }) {
       console.log(newList, data)
     }
     fetchData()
-  })
+  }, [source])
 
   if (data.length === 0) {
     return <Spinner />
@@ -29,12 +29,18 @@ function SelectionBox({ source, dataKey, exhibitionField, selectFunction }) {
       <Row md={12}>
         <Col>
           <Form.Select
-            value={selectedValue}
-            onChange={(e) => setSelectedValue(e.target.value)}
+            required
+            onChange={(e) => {
+              setSelectedValue(e.target.value);
+              selectFunction({ ...motoboy, entrega: e.target.value });
+              console.log(entregaSelect)
+            }
+            }
           >
+            <option defaultChecked value={''}>Selecione uma entrega</option>
             {data.map((item) => (
-              <option value={item[exhibitionField]}
-                onClick={()=>{selectFunction(item[exhibitionField])}}
+              <option
+                value={item[exhibitionField]}
                 key={item[dataKey]}>{item[exhibitionField]}</option>
             ))}
           </Form.Select>
@@ -43,4 +49,5 @@ function SelectionBox({ source, dataKey, exhibitionField, selectFunction }) {
     </Container>
   );
 }
+
 export default SelectionBox;

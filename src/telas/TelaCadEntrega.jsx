@@ -1,8 +1,9 @@
 import Pagina from "../templates/Pagina";
-import FormEntrega from "../formularios/FormCadEntrega";
-import TabelaEntrega from "../tabela/TabelaEntrega";
+import FormEntregas from "../formularios/FormEntregas";
+import TabelaEntregas from "../tabela/TabelaEntrega";
 import { useState, useEffect } from "react";
 import { Container, Alert } from "react-bootstrap";
+import { urlBase } from "../assets/definicoes";
 
 export default function TelaCadEntrega(props) {
     const [exibirTabela, setExibirTabela] = useState(true);
@@ -22,7 +23,7 @@ export default function TelaCadEntrega(props) {
     }
 
     function apagarEntrega(entrega) {
-        fetch( "https://129.146.68.51/aluno45-pfsii/entrega", {
+        fetch(urlBase + "https://129.146.68.51/aluno45-pfsii/entrega", {
             method: "DELETE",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(entrega)
@@ -30,19 +31,19 @@ export default function TelaCadEntrega(props) {
             return resposta.json();
         }).then((retorno) => {
             if (retorno.mensagem) {
-                alert("Entrega excluído");
+                alert("Entrega excluida");
                 setExibirTabela(true);
                 window.location.reload();
             }
             else {
-                alert("Não e possível excluir")
+                alert("Não foi possível excluir")
 
             }
         })
     }
 
     useEffect(() => {
-        fetch( "https://129.146.68.51/aluno45-pfsii/entrega", {
+        fetch(urlBase + "https://129.146.68.51/aluno45-pfsii/entrega", {
             method: "GET"
         }).then((resposta) => {
             return resposta.json();
@@ -51,6 +52,7 @@ export default function TelaCadEntrega(props) {
                 setEntregas(dados);
             } 
             else {
+
             }
         });
     }, []);
@@ -59,21 +61,20 @@ export default function TelaCadEntrega(props) {
         <Pagina>
             <Container className="border m-6">
                 <Alert variant={""} className="text-center m-3">
-                   <font size="5"><strong>Cadastro de Entregas</strong></font>
-                </Alert>
+                    <font size="5"><strong>Cadastro de entregas</strong></font></Alert>
                 {
                     exibirTabela ?
-                        <TabelaEntrega
+                        <TabelaEntregas
+                            listaEntregas={entregas}
                             setEntregas={setEntregas}
-                            listaEntrega={entregas}
                             exibirTabela={setExibirTabela}
                             editarEntrega={edicaoEntrega}
                             excluirEntrega={apagarEntrega}
                             setModoEdicao={setModoEdicao}
                             edicaoEntrega={setEntregaEdicao} />
                         :
-                        <FormEntrega
-                            listaEntrega={entregas}
+                        <FormEntregas
+                            listaEntregas={entregas}
                             setEntregas={setEntregas}
                             exibirTabela={setExibirTabela}
                             modoEdicao={modoEdicao}

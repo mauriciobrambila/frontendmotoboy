@@ -4,7 +4,7 @@
     margin: 0;
     border: 1px solid black;
     border-radius: 5px;
-    box-shadow: 50px 20px 20px ;
+    box-shadow: 5px 10px 10px ;
 }
 
 .barra svg {
@@ -31,4 +31,3 @@ width: 95%;
     background-color: whitesmoke;
     width: 91%;
 }
-
