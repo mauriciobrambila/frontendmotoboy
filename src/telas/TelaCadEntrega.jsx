@@ -11,6 +11,7 @@ export default function TelaCadEntrega(props) {
     const [modoEdicao, setModoEdicao] = useState(false);
     const [atualizando, setAtualizando] = useState(false);
     const [entregaEmEdicao, setEntregaEdicao] = useState({
+        
         ID: '',
         entrega: '',
     })
