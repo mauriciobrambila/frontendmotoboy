@@ -1,6 +1,7 @@
 {
   "name": "motoboy",
   "version": "0.1.0",
+  "homepage": "https://mauriciobrambila.github.io/cadastromotoboy",
   "private": true,
   "dependencies": {
     "@netuno/service-client": "^1.2.0",
@@ -18,6 +19,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -43,6 +46,7 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-methods": "^7.18.6",
-    "@babel/plugin-proposal-throw-expressions": "^7.22.5"
+    "@babel/plugin-proposal-throw-expressions": "^7.22.5",
+    "gh-pages": "^6.0.0"
   }
 }
