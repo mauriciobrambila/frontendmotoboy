@@ -51,7 +51,7 @@ export default function TabelaEntregas(props) {
                                     </Button>{' '}
 
                                     <Button variant="danger" onClick={() => {
-                                        if (window.confirm('Confirma a Exclusão do motoboy?')) {
+                                        if (window.confirm('Excluir esta entregas?')) {
                                             props.excluirEntrega(entrega);
                                         }
                                     }}>
