@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, Container, Form, Row, Col } from "react-bootstrap";
-import { IMaskInput } from "react-imask";
+//import { IMaskInput } from "react-imask";
 import { urlBase3 } from "../utilitarios/definicoes";
 
 export default function FormMotoboys(props) {
@@ -93,7 +93,7 @@ export default function FormMotoboys(props) {
               <Form.Label>CPF</Form.Label>
               <Form.Control
                 required
-                as={IMaskInput}
+                as={ ""}
                 mask="000.000.000-00"
                 placeholder="Digite o CPF"
                 value={motoboy.cpf}
@@ -150,7 +150,7 @@ export default function FormMotoboys(props) {
               <Form.Control
                 required
                 type="text"
-                as={IMaskInput}
+                as={" "}
                 mask="(00) 00000-0000"
                 placeholder="Telefone"
                 value={motoboy.tel}
