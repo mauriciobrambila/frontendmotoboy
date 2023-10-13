@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button, Container, Form, Row, Col } from "react-bootstrap";
-//import { IMaskInput } from "react-imask";
+import { IMaskInput } from "react-imask";
 import { urlBase3 } from "../utilitarios/definicoes";
 
 export default function FormMotoboys(props) {
@@ -80,26 +80,24 @@ export default function FormMotoboys(props) {
                 placeholder="Nome"
                 value={motoboy.nome}
                 id="nome"
-                onChange={manipulaEvento}
-              />
-
+                onChange={manipulaEvento} />
               <Form.Control.Feedback type="invalid">
               Informe o nome completo
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
+          
           <Col>
             <Form.Group className="mb-3" controlId="cpf">
               <Form.Label>CPF</Form.Label>
               <Form.Control
                 required
-                as={ ""}
+                as={IMaskInput}
                 mask="000.000.000-00"
                 placeholder="Digite o CPF"
                 value={motoboy.cpf}
                 id="cpf"
-                onChange={manipulaEvento}
-              />
+                onChange={manipulaEvento} />
 
               <Form.Control.Feedback type="invalid">
               Informe o CPF
@@ -115,8 +113,7 @@ export default function FormMotoboys(props) {
                 type="date"
                 value={motoboy.dataNasc}
                 id="dataNasc"
-                onChange={manipulaEvento}
-              />
+                onChange={manipulaEvento} />
 
               <Form.Control.Feedback type="invalid">
                 Por favor, informe a data!
@@ -135,8 +132,7 @@ export default function FormMotoboys(props) {
                 placeholder="Email"
                 value={motoboy.email}
                 id="email"
-                onChange={manipulaEvento}
-              />
+                onChange={manipulaEvento} />
 
               <Form.Control.Feedback type="invalid">
               Informe seu email
@@ -150,13 +146,12 @@ export default function FormMotoboys(props) {
               <Form.Control
                 required
                 type="text"
-                as={" "}
+                as={IMaskInput}
                 mask="(00) 00000-0000"
                 placeholder="Telefone"
                 value={motoboy.tel}
                 id="tel"
-                onChange={manipulaEvento}
-              />
+                onChange={manipulaEvento} />
 
               <Form.Control.Feedback type="invalid">
                 Por favor, um telefone para contato!
@@ -171,9 +166,9 @@ export default function FormMotoboys(props) {
                 aria-label="Default select example"
                 value={motoboy.sexo}
                 id="sexo"
-                onChange={manipulaEvento}
-              >
-                <option null>Selecione uma opção</option>
+                onChange={manipulaEvento}>
+
+                <option null>Selecione um genero</option>
                 <option value="Masculino">Masculino</option>
                 <option value="Feminino">Feminino</option>
               </Form.Select>
@@ -194,14 +189,14 @@ export default function FormMotoboys(props) {
                 placeholder="Cidade"
                 value={motoboy.cidade}
                 id="cidade"
-                onChange={manipulaEvento}
-              />
+                onChange={manipulaEvento} />
 
               <Form.Control.Feedback type="invalid">
                 Por favor, informe sua cidade!
               </Form.Control.Feedback>
             </Form.Group>
           </Col>
+
           <Col>
             <Form.Group>
               <Form.Label>Estado</Form.Label>

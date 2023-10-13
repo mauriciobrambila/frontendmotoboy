@@ -2,7 +2,7 @@
 import { Button, Table, Container, Form, Row, Col } from "react-bootstrap";
 import { urlBase2 } from "../utilitarios/definicoes";
 
-export default function TabelaEntrega(props) {
+export default function TabelaProduto(props) {
   
   function filtrar(e) {
     const termoBusca = e.currentTarget.value;
@@ -10,12 +10,12 @@ export default function TabelaEntrega(props) {
       .then((resposta) => {
         return resposta.json();
       })
-      .then((listaEntregas) => {
-        if (Array.isArray(listaEntregas)) {
-          const resultadoBusca = listaEntregas.filter((entrega) =>
-          entrega.itemEntregue.toLowerCase().includes(termoBusca.toLowerCase())
+      .then((listaProdutos) => {
+        if (Array.isArray(listaProdutos)) {
+          const resultadoBusca = listaProdutos.filter((produto) =>
+          produto.itemEntregue.toLowerCase().includes(termoBusca.toLowerCase())
           );
-          props.setEntregas(resultadoBusca);
+          props.setProdutos(resultadoBusca);
         }
       });
   }
@@ -25,10 +25,7 @@ export default function TabelaEntrega(props) {
       <center><Button
         onClick={() => {
           props.exibirTabela(false);
-        }}
-      >
-        Cadastrar
-      </Button></center>
+        }}>Cadastrar</Button></center>
 
       <Container className=" m-3">
         <Row>
@@ -36,10 +33,10 @@ export default function TabelaEntrega(props) {
             <Form.Control
               type="text"
               id="termoBusca"
-              placeholder="Busque pelo tipo de entrega"
-              onChange={filtrar}
-            />
+              placeholder="Busque pelo tipo de produto"
+              onChange={filtrar} />
           </Col>
+
           <Col >
             <Button>
               <svg
@@ -48,8 +45,7 @@ export default function TabelaEntrega(props) {
                 height="16"
                 fill="currentColor"
                 className="bi bi-search"
-                viewBox="0 0 16 16"
-              >
+                viewBox="0 0 16 16">
                 <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
               </svg>
             </Button>
@@ -61,46 +57,44 @@ export default function TabelaEntrega(props) {
         <thead>
           <tr>
             <th><center>ID</center></th>
-            <th><center>Tipo de entrega</center></th>
+            <th><center>Tipo de produto</center></th>
             <th><center>Quantidade</center></th>
             <th><center>CPF do entregador</center></th>
             <th><center>Ações</center></th>
           </tr>
         </thead>
+
         <tbody>
-          {props.listaEntregas?.map((entrega) => {
+          {props.listaProdutos?.map((produto) => {
             return (
-              <tr key={entrega.id}>
-                <td>{entrega.id}</td>
-                <td>{entrega.item}</td>
-                <td>{entrega.qtd}</td>
-                <td>{entrega.cpfMotoboy}</td>
+              <tr key={produto.id}>
+                <td>{produto.id}</td>
+                <td>{produto.item}</td>
+                <td>{produto.qtd}</td>
+                <td>{produto.cpfMotoboy}</td>
                 <td>
                 <center><Button
                     onClick={() => {
                       if (window.confirm("Deseja excluir?")) {
-                        props.excluir(entrega);
-                      }
-                    }}
-                  >
+                        props.excluir(produto);
+                      }}}>
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
                       height="16"
                       fill="currentColor"
                       className="bi bi-trash3"
-                      viewBox="0 0 16 16"
-                    >
+                      viewBox="0 0 16 16">
                       <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z" />
                     </svg>
                   </Button>{" "}
+
                   <Button
                     onClick={() => {
                       if (window.confirm("Deseja atualizar?")) {
-                        props.editar(entrega);
-                      }
-                    }}
-                  >
+                        props.editar(produto);
+                      }}}>
+                        
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"

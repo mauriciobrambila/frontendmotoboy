@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import { Alert, Container } from "react-bootstrap";
 import { urlBase2} from "../utilitarios/definicoes";
 
-
 export default function TelaEntrega(props) {
   const [exibirTabela, setExibirTabela] = useState(true);
   const [entregas, setEntregas] = useState([]);
@@ -62,8 +61,7 @@ export default function TelaEntrega(props) {
             setEntregas={setEntregas}
             exibirTabela={setExibirTabela}
             editar={prepararTela}
-            excluir={excluirMotoboy}
-          />
+            excluir={excluirMotoboy}/>
         ) : (
           <div>
            
@@ -74,8 +72,7 @@ export default function TelaEntrega(props) {
               editar={prepararTela}
               modoEdicao={modoEdicao}
               setModoEdicao={setModoEdicao}
-              entrega={motoboyEdicao}
-            />
+              entrega={motoboyEdicao}/>
           </div>
         )}
       </Container>

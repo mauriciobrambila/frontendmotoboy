@@ -38,7 +38,6 @@ function Home() {
                 </tbody>
             </table>
         </div>
-
     </div>
     );
 }

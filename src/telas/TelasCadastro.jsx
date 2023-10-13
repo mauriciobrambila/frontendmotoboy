@@ -27,8 +27,8 @@ export default function TelaCadastro(props) {
     setExibirTabela(false);
   }
 
-  function excluirMotoboy(motoboy) {
-    fetch(urlBase3 + '/motoboys', {
+  function deletarMotoboy(motoboy) {
+    fetch(urlBase3, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(motoboy),
@@ -67,11 +67,17 @@ export default function TelaCadastro(props) {
             setMotoboys={setMotoboys}
             exibirTabela={setExibirTabela}
             editar={prepararTela}
-            excluir={excluirMotoboy}
-          />
+            deletar={deletarMotoboy}/>
         ) : (
           <div>
-            {}
+            {/* <BarraBusca
+              placeHolder={"Informe sua busca"}
+              dados={setListaDoacao}
+              campoChave={"cpf"}
+              campoBusca={ListaDoacao}
+              funcaoSelecao={setDoacaoSelecionado}
+              valor={doacaoSelecionado}
+            /> */}
             <FormMotoboys
               listaMotoboys={motoboys}
               exibirTabela={setExibirTabela}
@@ -79,8 +85,7 @@ export default function TelaCadastro(props) {
               editar={prepararTela}
               modoEdicao={modoEdicao}
               setModoEdicao={setModoEdicao}
-              motoboy={motoboyEdicao}
-            />
+              motoboy={motoboyEdicao}/>
           </div>
         )}
       </Container>

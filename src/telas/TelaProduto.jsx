@@ -5,28 +5,28 @@ import { useState, useEffect } from "react";
 import { Alert, Container } from "react-bootstrap";
 import { urlBase} from "../utilitarios/definicoes";
 
-export default function TelProduto(props) {
+export default function TelaProduto(props) {
   const [exibirTabela, setExibirTabela] = useState(true);
-  const [entregas, setEntregas] = useState([]);
+  const [produtos, setProdutos] = useState([]);
   const [modoEdicao, setModoEdicao] = useState(false);
   const [motoboyEdicao, setMotoboyEdicao] = useState({
-    id_produto:"",
+    id:"",
     item: "",
     qtd: "",
     
   });
 
-  function prepararTela(entrega) {
+  function prepararTela(produto) {
     setModoEdicao(true);
-    setMotoboyEdicao(entrega);
+    setMotoboyEdicao(produto);
     setExibirTabela(false);
   }
 
-  function excluirMotoboy(entrega) {
+  function excluirMotoboy(produto) {
     fetch(urlBase, {
       method: "DELETE",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(entrega),
+      body: JSON.stringify(produto),
     })
       .then((resposta) => {
         window.alert("Item excluido");
@@ -44,7 +44,7 @@ export default function TelProduto(props) {
       })
       .then((dados) => {
         if (Array.isArray(dados)) {
-          setEntregas(dados);
+          setProdutos(dados);
         } else {
         }
       });
@@ -54,28 +54,26 @@ export default function TelProduto(props) {
     <Pagina>
       <Container className="border">
         <Alert variant="success" className="text-center">
-        <h3><strong>Registre o tipo e a quantidade de entrega</strong></h3>
+        <h3><strong>Registre o tipo e a quantidade de produto</strong></h3>
         </Alert>
         {exibirTabela ? (
           <TabelaProduto
-            listaEntregas={entregas}
-            setEntregas={setEntregas}
+            listaProdutos={produtos}
+            setProdutos={setProdutos}
             exibirTabela={setExibirTabela}
             editar={prepararTela}
-            excluir={excluirMotoboy}
-          />
+            excluir={excluirMotoboy}/>
         ) : (
           <div>
            
             <FormProduto
-              listaEntregas={entregas}
+              listaProdutos={produtos}
               exibirTabela={setExibirTabela}
-              setEntregas={setEntregas}
+              setProdutos={setProdutos}
               editar={prepararTela}
               modoEdicao={modoEdicao}
               setModoEdicao={setModoEdicao}
-              entrega={motoboyEdicao}
-            />
+              produto={motoboyEdicao}/>
           </div>
         )}
       </Container>

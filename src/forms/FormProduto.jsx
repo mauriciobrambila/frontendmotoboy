@@ -5,13 +5,13 @@ import BarraBusca from "./BarraBusca";
 
 export default function FormProduto(props) {
   const [validado, setValidado] = useState(false);
-  const [entrega, setEntrega] = useState(props.entrega);
+  const [produto, setProduto] = useState(props.produto);
 
   function manipularMudanca(e) {
     const elemForm = e.currentTarget;
     const id = elemForm.id;
     const valor = elemForm.value;
-    setEntrega({ ...entrega, [id]: valor });
+    setProduto({ ...produto, [id]: valor });
   }
 
   function manipulaSumissao(evento) {
@@ -23,9 +23,9 @@ export default function FormProduto(props) {
         nome: motoboySelecionado.nome,
       };
       const dadosEnvio = {
-        item: entrega.item,
-        qtd: entrega.qtd,
-        cpf: entrega.cpfMotoboy,
+        item: produto.item,
+        qtd: produto.qtd,
+        cpf: produto.cpfMotoboy,
         motoboy: motoboy,
       };
       if (!props.modoEdicao) {
@@ -36,12 +36,12 @@ export default function FormProduto(props) {
           },
           body: JSON.stringify(dadosEnvio),
         }).then((resposta) => {
-          window.alert("Entrega registrada");
+          window.alert("Produto registrado");
           window.location.reload();
           return resposta.json();
         });
       } else {
-        dadosEnvio.id = entrega.id;
+        dadosEnvio.id = produto.id;
         fetch(urlBase, {
           method: "PUT",
           headers: {
@@ -49,7 +49,7 @@ export default function FormProduto(props) {
           },
           body: JSON.stringify(dadosEnvio),
         }).then((resposta) => {
-          window.alert("Entrega atualizada");
+          window.alert("Produto atualizado");
           window.location.reload();
           return resposta.json();
         });
@@ -96,10 +96,9 @@ export default function FormProduto(props) {
               campoBusca={"nome"}
               funcaoSelecao={(motoboySelecionado) => {
                 setMotoboySelecionado(motoboySelecionado);
-                setEntrega({ ...entrega, motoboy: motoboySelecionado });
+                setProduto({ ...produto, motoboy: motoboySelecionado });
               }}
-              valor={""}
-            />
+              valor={""} />
             {}
             {<br></br>}{<br></br>}
             <Form.Control.Feedback type="invalid">
@@ -110,21 +109,14 @@ export default function FormProduto(props) {
               placeholder="Nome do motoboy"
               value={motoboySelecionado?.nome || ""}
               onChange={(e) => {
-
-              }}
-              />
+              }} />
                {<br></br>}
               <Form.Control
               type="text"
               placeholder="CPF do motoboy"
               value={motoboySelecionado?.cpf || ""}
               onChange={(e) => {
-
-              }}
-              />
-
-            
-
+              }} />
           </Form.Group>
 
           <Col>
@@ -132,29 +124,26 @@ export default function FormProduto(props) {
               <Form.Label>Item a ser entregue</Form.Label>
               <Form.Control
                 placeholder="Peças, etc, ....."
-                value={entrega.item}
+                value={produto.item}
                 id="item"
                 onChange={manipularMudanca}
               />
               {(inputProps) => <Form.Control {...inputProps} />}
-
-             
             </Form.Group>
           </Col>
         </Row>
+
         <Row>
           <Col>
-            <Form.Group className="mb-3" controlId="valorEntregue">
+            <Form.Group className="mb-3" controlId="valorProduto">
               <Form.Label>Quantidade de itens</Form.Label>
               <Form.Control
                 type="int"
                 placeholder="10"
-                value={entrega.qtd}
+                value={produto.qtd}
                 id="qtd"
-                onChange={manipularMudanca}
-              />
-              
-            </Form.Group>
+                onChange={manipularMudanca} />
+              </Form.Group>
           </Col>
         </Row>
 

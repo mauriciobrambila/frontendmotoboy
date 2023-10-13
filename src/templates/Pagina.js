@@ -9,7 +9,6 @@ return(
          <Menu/>
          <Container>
          {props.children}
-
          </Container>
     </div>
 )

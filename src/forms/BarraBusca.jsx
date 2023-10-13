@@ -2,14 +2,7 @@ import { useRef, useState, useEffect } from "react";
 import { Form, Container } from "react-bootstrap";
 import "./barraBusca.css";
 
-function BarraBusca({
-  placeHolder,
-  dados,
-  campoChave,
-  campoBusca,
-  funcaoSelecao,
-  valor
-}) {
+function BarraBusca({placeHolder, dados, campoChave, campoBusca, funcaoSelecao, valor}) {
   const inputBusca = useRef();
 
   const [termoBusca, setTermoBusca] = useState(valor ? valor : "");

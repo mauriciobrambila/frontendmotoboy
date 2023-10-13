@@ -89,7 +89,7 @@ export default function FormEntrega(props) {
         <Row>
           <Form.Group className="mb-3">
             <Form.Label>Motoboy</Form.Label>
-            { }
+            {/* <Home/> */}
             <BarraBusca
               placeHolder={"Informe um motoboy"}
               dados={listaMotoboys}
@@ -101,7 +101,7 @@ export default function FormEntrega(props) {
               }}
               valor={""}
             />
-            { }
+            {/* {console.log(listaUsuarios)} */}
             {<br></br>}{<br></br>}
             <Form.Control.Feedback type="invalid">
               Insira o motoboy
@@ -124,8 +124,6 @@ export default function FormEntrega(props) {
               }}
               />
 
-            
-
           </Form.Group>
 
           <Col>
@@ -145,15 +143,16 @@ export default function FormEntrega(props) {
             </Form.Group>
           </Col>
         </Row>
+
         <Row>
           <Col>
-            <Form.Group className="mb-3" controlId="valorEntrega">
+            <Form.Group className="mb-3" controlId="valorEntregue">
               <Form.Label>Valor a receber da entrega</Form.Label>
               <Form.Control
                 type="int"
                 placeholder="R$ 5,00"
-                value={entrega.valorEntrega}
-                id="valorEntrega"
+                value={entrega.valorEntregue}
+                id="valorEntregue"
                 onChange={manipularMudanca}
               />
               <Form.Control.Feedback type="invalid">
