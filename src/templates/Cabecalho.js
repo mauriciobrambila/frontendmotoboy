@@ -1,10 +1,9 @@
 import { Alert } from "react-bootstrap";
-export function Cabecalho(props){
+
+export default function Cabecalho(props){
     return(
         <div>
-             <Alert variant='dark' className='text-center mb-0'><h3><strong>
-                {props.texto}</strong></h3>
-                </Alert>
+            <Alert variant='dark' className='text-center mb-0'><h1>{props.texto}</h1></Alert>
         </div>
-    )
+    );
 }

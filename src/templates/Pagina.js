@@ -1,15 +1,14 @@
-import { Container } from "react-bootstrap"
-import { Cabecalho } from "./cabecalho.js"
-import Menu from "./menu.js"
+import { Container } from "react-bootstrap";
+import Cabecalho from "./Cabecalho";
+import Menu from "./Menu";
 
-export default function Pagina(props){
-return(
-    <div>
-        <Cabecalho texto = "Sistema para cadastramento de Entregadores e Mercadorias"/>
-         <Menu/>
-         <Container>
-         {props.children}
-         </Container>
-    </div>
-)
+export default function Pagina(props) {
+    return(
+        <>
+            <Cabecalho texto="Central de motoboys e entregas" />
+            <Menu />
+            <Container>{props.children}</Container>
+        </>
+    );
+
 }
