@@ -1,20 +1,20 @@
-import TelaCadastro from "./telas/TelasCadastro";
+import Tela404 from "./telas/Tela404";
 import TelaMenu from "./telas/TelaMenu";
+import TelaCadMotoboys from "./telas/TelaCadMotoboys";
+import TelaCadEntrega from "./telas/TelaCadEntrega";
+import TelaCadastroPedidos from "./telas/TelaCadPedidos";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Tela404 from "./telas/tela404";
-import TelaEntrega from "./telas/TelaEntrega";
-import TelaProduto from "./telas/TelaProduto";
 
 function App() {
   return (
     <div>
       <BrowserRouter>
         <Routes>
-          <Route path="/FormMotoboy" element={<TelaCadastro />} />
-          <Route path="/FormEntrega" element={<TelaEntrega />} />
-          <Route path="/FormProduto" element={<TelaProduto />} />
-          <Route path="/" element={<TelaMenu />} />
-          <Route path="*" element={<Tela404 />} />
+          <Route path="/cadastroMotoboys" element={<TelaCadMotoboys/>}/>
+          <Route path="/cadastroEntrega" element={<TelaCadEntrega/>}/>
+          <Route path="/cadastroPedidos" element={<TelaCadastroPedidos/>}/>
+          <Route path="/" element={<TelaMenu/>}/>
+          <Route path="*" element={<Tela404/>}/>
         </Routes>
       </BrowserRouter>
     </div>
