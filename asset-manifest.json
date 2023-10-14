@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/frontendmotoboy/static/css/main.6256e033.css",
-    "main.js": "/frontendmotoboy/static/js/main.116c2992.js",
+    "main.css": "/frontendmotoboy/static/css/main.eefc237f.css",
+    "main.js": "/frontendmotoboy/static/js/main.121a9de6.js",
     "index.html": "/frontendmotoboy/index.html",
-    "main.6256e033.css.map": "/frontendmotoboy/static/css/main.6256e033.css.map",
-    "main.116c2992.js.map": "/frontendmotoboy/static/js/main.116c2992.js.map"
+    "main.eefc237f.css.map": "/frontendmotoboy/static/css/main.eefc237f.css.map",
+    "main.121a9de6.js.map": "/frontendmotoboy/static/js/main.121a9de6.js.map"
   },
   "entrypoints": [
-    "static/css/main.6256e033.css",
-    "static/js/main.116c2992.js"
+    "static/css/main.eefc237f.css",
+    "static/js/main.121a9de6.js"
   ]
 }
