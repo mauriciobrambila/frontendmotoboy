@@ -26,7 +26,7 @@ export default function Menu(props) {
 
                     <NavbarCollapse><LinkContainer to="/cadastroEntrega"><NavDropdown.Item><strong><font color="white">Entregas</font></strong></NavDropdown.Item></LinkContainer></NavbarCollapse>
 
-                    <NavbarCollapse><LinkContainer to="/cadastroPedidos"><NavDropdown.Item><strong><font color="white">Pedidos</font></strong></NavDropdown.Item></LinkContainer></NavbarCollapse>
+                    <NavbarCollapse><LinkContainer to="/cadastroPedidos"><NavDropdown.Item><strong><font color="white">Profissao</font></strong></NavDropdown.Item></LinkContainer></NavbarCollapse>
                
                     <Nav>
                         <Nav.Link href="/"><strong><font color="white">VOLTAR</font></strong></Nav.Link>

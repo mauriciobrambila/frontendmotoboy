@@ -4,6 +4,7 @@ import Col from 'react-bootstrap/Col';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import ReactInputMask from "react-input-mask";
+
 import { urlBase, urlBase3 } from '../utilitarios/definiçoes';
 import CaixaSelecao from '../utilitarios/Combobox';
 
@@ -24,7 +25,7 @@ const boxcadall_style = {
 export default function FormMotoboy(props) {
   const [validated, setValidated] = useState(false);
   const [motoboy, setMotoboy] = useState(props.motoboy);
-  const [pedidoSelecionada, setPedidoSelecionada] = useState({});
+  const [pedidoSelecionado, setPedidoSelecionado] = useState({});
 
   function manipularMudanca(e) {
     const elemForm = e.currentTarget;
@@ -187,7 +188,7 @@ export default function FormMotoboy(props) {
                         campoChave={"codigoPed"}
                         campoExibicao={"descricao"}
                         funcaoSelecao={(itemSelecionado) => {
-                          setPedidoSelecionada(itemSelecionado);
+                          setPedidoSelecionado(itemSelecionado);
                           setMotoboy({ ...motoboy, codPedido: itemSelecionado.codigoPed });
                         }}
                         id="codPedido"
