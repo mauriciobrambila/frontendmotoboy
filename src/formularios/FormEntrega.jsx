@@ -70,7 +70,7 @@ export default function FormEntrega(props) {
               motoboy:{codigo: motoboy.codigo}
             })
           }
-          fetch(urlBase2, {
+          fetch(urlBase2 + "https://129.146.68.51/aluno45-pfsii/entrega", {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
@@ -88,7 +88,7 @@ export default function FormEntrega(props) {
             })
             .then((dados) => {
                 props.setModoEdicao(false);
-                fetch(urlBase2, { method: "GET" })
+                fetch(urlBase2 + "https://129.146.68.51/aluno45-pfsii/entrega", { method: "GET" })
                 .then((resposta) => {
                   return resposta.json();
                 })
@@ -107,7 +107,7 @@ export default function FormEntrega(props) {
             });
         }
         else{
-          fetch(urlBase2, {
+          fetch(urlBase2 + "https://129.146.68.51/aluno45-pfsii/entrega", {
             method:"PUT",
             headers:{"Content-Type":"application/json"},
             body: JSON.stringify(entrega)
@@ -186,7 +186,7 @@ export default function FormEntrega(props) {
       <Row>
         <Form.Group as={Col} md="6">
             <Form.Label><strong>Nome do entregador</strong></Form.Label>
-            <CaixaSelecao endFonteDados={urlBase}
+            <CaixaSelecao endFonteDados={urlBase + "https://129.146.68.51/aluno45-pfsii/motoboys"}
                           campoChave={"codigo"}
                           campoExibicao={"nome"}
                           funcaoSelecao={setMotoboySelecionado} />

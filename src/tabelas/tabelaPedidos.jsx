@@ -4,7 +4,7 @@ import { urlBase3 } from "../utilitarios/definiçoes";
 export default function TabelaPedidos(props){
     function filtrarPedidos(e){
         const termoBusca = e.currentTarget.value;
-        fetch(urlBase3, {method:"GET"})
+        fetch(urlBase3 + "https://129.146.68.51/aluno45-pfsii/pedidos", {method:"GET"})
         .then((resposta)=> {return resposta.json()})
         .then((listaPedidos)=>{
             if (Array.isArray(listaPedidos)){

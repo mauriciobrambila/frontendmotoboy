@@ -4,7 +4,7 @@ import { urlBase2 } from "../utilitarios/definiçoes";
 export default function TabelaEntregas(props){
     function filtrarEntregas(e) {
         const termoBusca = e.currentTarget.value.toLowerCase();
-           fetch(urlBase2, { method: "GET" })
+           fetch(urlBase2 + "https://129.146.68.51/aluno45-pfsii/entrega", { method: "GET" })
           .then((resposta) => resposta.json())
           .then((listaEntregas) => {
             if (Array.isArray(listaEntregas)) {

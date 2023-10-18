@@ -18,7 +18,7 @@ export default function TelaCadastroEntregas(props){
     });
     
     useEffect(()=>{
-        fetch(urlBase2, {method:"GET"})
+        fetch(urlBase2 + "https://129.146.68.51/aluno45-pfsii/entrega", {method:"GET"})
         .then((resposta)=>{return resposta.json()})
         .then((dados)=>{
             if (Array.isArray(dados)){
@@ -38,7 +38,7 @@ export default function TelaCadastroEntregas(props){
 
     function excluirEntrega(entrega) {
         if (window.confirm("Confirmar exclusão?")) {
-          fetch(urlBase2, {
+          fetch(urlBase2 + "https://129.146.68.51/aluno45-pfsii/entrega", {
             method: "DELETE",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(entrega),
