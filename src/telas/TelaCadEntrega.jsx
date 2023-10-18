@@ -18,7 +18,7 @@ export default function TelaCadastroEntregas(props){
     });
     
     useEffect(()=>{
-        fetch(urlBase2 + "http://localhost:3000/entrega", {method:"GET"})
+        fetch(urlBase2, {method:"GET"})
         .then((resposta)=>{return resposta.json()})
         .then((dados)=>{
             if (Array.isArray(dados)){
@@ -38,7 +38,7 @@ export default function TelaCadastroEntregas(props){
 
     function excluirEntrega(entrega) {
         if (window.confirm("Confirmar exclusão?")) {
-          fetch(urlBase2 + "http://localhost:3000/entrega", {
+          fetch(urlBase2, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(entrega),

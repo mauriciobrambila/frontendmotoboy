@@ -20,7 +20,7 @@ export default function TelaCadastroMotoboys(props){
     });
     
     useEffect(()=>{
-        fetch(urlBase + "http://localhost:3000/motoboys", {method:"GET"})
+        fetch(urlBase, {method:"GET"})
         .then((resposta)=>{return resposta.json()})
         .then((dados)=>{
             if (Array.isArray(dados)){
@@ -40,7 +40,7 @@ export default function TelaCadastroMotoboys(props){
     
     function excluirMotoboy(motoboy) {
         if (window.confirm("Confirmar exclusão?")) {
-          fetch(urlBase + "http://localhost:3000/motoboys", {
+          fetch(urlBase, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(motoboy)

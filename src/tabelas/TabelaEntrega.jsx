@@ -4,7 +4,7 @@ import { urlBase2 } from "../utilitarios/definiçoes";
 export default function TabelaEntregas(props){
     function filtrarEntregas(e) {
         const termoBusca = e.currentTarget.value.toLowerCase();
-           fetch(urlBase2 + "http://localhost:3000/entrega", { method: "GET" })
+           fetch(urlBase2, { method: "GET" })
           .then((resposta) => resposta.json())
           .then((listaEntregas) => {
             if (Array.isArray(listaEntregas)) {
