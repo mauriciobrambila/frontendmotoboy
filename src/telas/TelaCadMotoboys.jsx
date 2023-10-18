@@ -20,7 +20,7 @@ export default function TelaCadastroMotoboys(props){
     });
     
     useEffect(()=>{
-        fetch(urlBase + "https://129.146.68.51/aluno45-pfsii/motoboys", {method:"GET"})
+        fetch(urlBase, {method:"GET"})
         .then((resposta)=>{return resposta.json()})
         .then((dados)=>{
             if (Array.isArray(dados)){
@@ -40,7 +40,7 @@ export default function TelaCadastroMotoboys(props){
     
     function excluirMotoboy(motoboy) {
         if (window.confirm("Confirmar exclusão?")) {
-          fetch(urlBase + "https://129.146.68.51/aluno45-pfsii/motoboys", {
+          fetch(urlBase, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(motoboy)

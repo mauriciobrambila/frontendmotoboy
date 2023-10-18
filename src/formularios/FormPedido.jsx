@@ -37,7 +37,7 @@ export default function FormPedido(props) {
       event.stopPropagation();
     } else {
         if(!props.modoEdicao){
-          fetch(urlBase3 + "https://129.146.68.51/aluno45-pfsii/pedidos", {
+          fetch(urlBase3, {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
@@ -49,7 +49,7 @@ export default function FormPedido(props) {
             })
             .then((dados) => {
                 props.setModoEdicao(false);
-                fetch(urlBase3 + "https://129.146.68.51/aluno45-pfsii/pedidos", { method: "GET" })
+                fetch(urlBase3, { method: "GET" })
                 .then((resposta) => {
                   return resposta.json();
                 })
@@ -68,7 +68,7 @@ export default function FormPedido(props) {
             });
         }
         else{
-          fetch(urlBase3 + "https://129.146.68.51/aluno45-pfsii/pedidos", {
+          fetch(urlBase3, {
             method:"PUT",
             headers:{"Content-Type":"application/json"},
             body: JSON.stringify(pedido)

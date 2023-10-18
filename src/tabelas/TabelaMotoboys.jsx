@@ -4,7 +4,7 @@ import { urlBase } from "../utilitarios/definiçoes";
 export default function TabelaMotoboys(props){
     function filtrarMotoboys(e){
         const termoBusca = e.currentTarget.value;
-        fetch(urlBase + "https://129.146.68.51/aluno45-pfsii/motoboys", {method:"GET"})
+        fetch(urlBase, {method:"GET"})
         .then((resposta)=> {return resposta.json()})
         .then((listaMotoboys)=>{
             if (Array.isArray(listaMotoboys)){
