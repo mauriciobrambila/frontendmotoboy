@@ -4,7 +4,7 @@ import { urlBase } from "../utilitarios/definiçoes";
 export default function TabelaMotoboys(props){
     function filtrarMotoboys(e){
         const termoBusca = e.currentTarget.value;
-        fetch(urlBase, {method:"GET"})
+        fetch(urlBase + "http://localhost:3000/motoboys", {method:"GET"})
         .then((resposta)=> {return resposta.json()})
         .then((listaMotoboys)=>{
             if (Array.isArray(listaMotoboys)){

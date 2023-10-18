@@ -37,7 +37,7 @@ export default function FormPedido(props) {
       event.stopPropagation();
     } else {
         if(!props.modoEdicao){
-          fetch(urlBase3, {
+          fetch(urlBase3 + "http://localhost:3000/pedidos", {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
@@ -49,7 +49,7 @@ export default function FormPedido(props) {
             })
             .then((dados) => {
                 props.setModoEdicao(false);
-                fetch(urlBase3, { method: "GET" })
+                fetch(urlBase3 + "http://localhost:3000/pedidos", { method: "GET" })
                 .then((resposta) => {
                   return resposta.json();
                 })
@@ -68,7 +68,7 @@ export default function FormPedido(props) {
             });
         }
         else{
-          fetch(urlBase3, {
+          fetch(urlBase3 + "http://localhost:3000/pedidos", {
             method:"PUT",
             headers:{"Content-Type":"application/json"},
             body: JSON.stringify(pedido)

@@ -41,7 +41,7 @@ export default function FormMotoboy(props) {
       event.stopPropagation();
     } else {
         if(!props.modoEdicao){
-          fetch(urlBase, {
+          fetch(urlBase + "http://localhost:3000/motoboys", {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
@@ -53,7 +53,7 @@ export default function FormMotoboy(props) {
             })
             .then((dados) => {
                 props.setModoEdicao(false);
-                fetch(urlBase, { method: "GET" })
+                fetch(urlBase + "http://localhost:3000/motoboys", { method: "GET" })
                 .then((resposta) => {
                   return resposta.json();
                 })
@@ -72,7 +72,7 @@ export default function FormMotoboy(props) {
             });
         }
         else{
-          fetch(urlBase, {
+          fetch(urlBase + "http://localhost:3000/motoboys", {
             method:"PUT",
             headers:{"Content-Type":"application/json"},
             body: JSON.stringify(motoboy)
@@ -183,7 +183,7 @@ export default function FormMotoboy(props) {
 
           <Form.Group as={Col} md="4">
           <Form.Label><strong>Cargo</strong></Form.Label>
-          <CaixaSelecao endFonteDados={urlBase3}
+          <CaixaSelecao endFonteDados={urlBase3 + "http://localhost:3000/pedidos"}
                         campoChave={"codigoPed"}
                         campoExibicao={"descricao"}
                         funcaoSelecao={(itemSelecionado) => {

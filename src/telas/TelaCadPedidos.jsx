@@ -15,7 +15,7 @@ export default function TelaCadastroPedidos(props){
     });
  
     useEffect(()=>{
-        fetch(urlBase3, {method:"GET"})
+        fetch(urlBase3 + "http://localhost:3000/pedidos", {method:"GET"})
         .then((resposta)=>{return resposta.json()})
         .then((dados)=>{
             if (Array.isArray(dados)){
@@ -35,7 +35,7 @@ export default function TelaCadastroPedidos(props){
     
     function excluirPedido(pedido) {
         if (window.confirm("Confirmar exclusão?")) {
-          fetch(urlBase3, {
+          fetch(urlBase3 + "http://localhost:3000/pedidos", {
             method: "DELETE",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(pedido)
