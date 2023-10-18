@@ -37,7 +37,7 @@ export default function FormPedido(props) {
       event.stopPropagation();
     } else {
         if(!props.modoEdicao){
-          fetch(urlBase3 + "http://localhost:3000/pedidos", {
+          fetch(urlBase3, {
             method: "POST",
             headers: {
               "Content-Type": "application/json"
