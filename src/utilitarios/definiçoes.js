@@ -1,4 +1,4 @@
-export const urlBase = "https://129.146.68.51/aluno45-pfsii/newmotoboys";
+export const urlBase = "https://129.146.68.51/aluno45-pfsii/motoboys";
 export const urlBase2 = "https://129.146.68.51/aluno45-pfsii/entrega";
 export const urlBase3 = "https://129.146.68.51/aluno45-pfsii/pedidos";
 
