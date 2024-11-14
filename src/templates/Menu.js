@@ -15,21 +15,24 @@ export default function Menu(props) {
 
     return (
         <Navbar style={navbarStyle} bg="black" variant="dark" expand="lg">
-            <Container >
-                
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
+        <Container >
+            <LinkContainer to="/" ><Navbar.Brand><font color="white"><strong>HOME</strong></font></Navbar.Brand></LinkContainer>
+            <Navbar.Toggle aria-controls="basic-navbar-nav" />
+            <Nav><font color="black">-------</font></Nav>
+            <Navbar.Collapse id="basic-navbar-nav">
+                <Nav className="me-auto">
                     
-                    <NavbarCollapse><LinkContainer to="/" ><Navbar.Brand><font color="white"><strong>HOME</strong></font></Navbar.Brand></LinkContainer></NavbarCollapse>
+                    <NavDropdown title="CADASTROS" id="basic-nav-dropdown">
+                        <LinkContainer to="/cadastroHospedes"><NavDropdown.Item><strong>Hospedes</strong></NavDropdown.Item></LinkContainer>
 
-                    <NavbarCollapse><LinkContainer to="/cadastroMotoboys"><NavDropdown.Item><strong><font color="white">Motoboys</font></strong></NavDropdown.Item></LinkContainer></NavbarCollapse>
+                        <LinkContainer to="/cadastroEntrada"><NavDropdown.Item><strong>Entrada</strong></NavDropdown.Item></LinkContainer>
 
-                    <NavbarCollapse><LinkContainer to="/cadastroEntrega"><NavDropdown.Item><strong><font color="white">Entregas</font></strong></NavDropdown.Item></LinkContainer></NavbarCollapse>
-
-                    <NavbarCollapse><LinkContainer to="/cadastroPedidos"><NavDropdown.Item><strong><font color="white">Profissao</font></strong></NavDropdown.Item></LinkContainer></NavbarCollapse>
+                        <LinkContainer to="/cadastroTelefones"><NavDropdown.Item><strong>Telefone</strong></NavDropdown.Item></LinkContainer>
+                    </NavDropdown>
+                </Nav>
                
                     <Nav>
-                        <Nav.Link href="/"><strong><font color="white">VOLTAR</font></strong></Nav.Link>
+                        <Nav.Link href="/"><strong><font color="red">VOLTAR</font></strong></Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Container>

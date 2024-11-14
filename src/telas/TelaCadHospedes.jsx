@@ -1,22 +1,22 @@
-import FormMotoboy from "../formularios/FormMotoboy";
+import FormHospede from "../formularios/FormHospede";
 import { Container } from "react-bootstrap";
-import TabelaMotoboys from "../tabelas/tabelaMotoboys";
+import TabelaHospedes from "../tabelas/tabelaHospedes";
 import { useState, useEffect } from "react";
 import Pagina from "../templates/Pagina";
 import { urlBase } from "../utilitarios/definiçoes";
 
-export default function TelaCadastroMotoboys(props){
-    const [motoboys, setMotoboys] = useState([]);
+export default function TelaCadastroHospedes(props){
+    const [hospedes, setHospedes] = useState([]);
     const [exibirTabela, setExibirTabela] = useState(true);
     const [modoEdicao, setModoEdicao] = useState(false);
-    const [motoboyEmEdicao, setMotoboyEmEdicao] = useState({
+    const [hospedeEmEdicao, setHospedeEmEdicao] = useState({
         nome: "",
         endereco: "",
         cpf: "",
         codigo: "",
-        telefone: "",
+        fone: "",
         dataCadastro: "",
-        codPedido: ""
+        codTelefone: ""
     });
     
     useEffect(()=>{
@@ -24,7 +24,7 @@ export default function TelaCadastroMotoboys(props){
         .then((resposta)=>{return resposta.json()})
         .then((dados)=>{
             if (Array.isArray(dados)){
-                setMotoboys(dados);
+                setHospedes(dados);
             }
             else{
                 window.alert("Erro ao fazer requisição do dados! Tente novamente")
@@ -32,29 +32,29 @@ export default function TelaCadastroMotoboys(props){
         });
     },[]);
 
-    function prepararMotoboyEdicao(motoboy){
+    function prepararHospedeEdicao(hospede){
         setModoEdicao(true);
-        setMotoboyEmEdicao(motoboy);
+        setHospedeEmEdicao(hospede);
         setExibirTabela(false);
     }
     
-    function excluirMotoboy(motoboy) {
+    function excluirHospede(hospede) {
         if (window.confirm("Confirmar exclusão?")) {
           fetch(urlBase, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(motoboy)
+            body: JSON.stringify(hospede)
           })
             .then((resposta) => resposta.json())
             .then((resposta) => {
-              window.alert("Motoboy excluído!");
+              window.alert("Hospede excluído!");
       
-              setMotoboys((antigos) =>
-                antigos.filter((v) => v.codigo !== motoboy.codigo)
+              setHospedes((antigos) =>
+                antigos.filter((v) => v.codigo !== hospede.codigo)
               );
             })
             .catch((erro) => {
-              window.alert("Erro ao excluir motoboy: " + erro.message);
+              window.alert("Erro ao excluir hospede: " + erro.message);
             });
         }
       }
@@ -65,22 +65,22 @@ export default function TelaCadastroMotoboys(props){
                 exibirTabela? 
                 <Pagina>
                     <Container id="brasao">
-                    <TabelaMotoboys listaMotoboys={motoboys}
-                                        setMotoboys={setMotoboys}
+                    <TabelaHospedes listaHospedes={hospedes}
+                                        setHospedes={setHospedes}
                                         exibirTabela={setExibirTabela}
-                                        editarMotoboy={prepararMotoboyEdicao}
-                                        excluir={excluirMotoboy}/> 
+                                        editarHospede={prepararHospedeEdicao}
+                                        excluir={excluirHospede}/> 
                     </Container>
                 </Pagina>
                     :
                 <Pagina>
                     <Container id="brasao">
-                        <FormMotoboy listaMotoboys={motoboys} 
-                                        setMotoboys={setMotoboys} 
+                        <FormHospede listaHospedes={hospedes} 
+                                        setHospedes={setHospedes} 
                                         exibirTabela={setExibirTabela} 
                                         modoEdicao={modoEdicao}
                                         setModoEdicao={setModoEdicao} 
-                                        motoboy={motoboyEmEdicao}
+                                        hospede={hospedeEmEdicao}
                                         />
                     </Container>
                  </Pagina>

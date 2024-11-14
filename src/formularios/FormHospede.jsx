@@ -11,26 +11,26 @@ const boxcad_style = {
   padding: '2px',
   borderRadius: '10px',
   border: '2px solid black',
-  width: '380px',
+  width: '350px',
 }
 
 const boxcadall_style = {
   padding: '5px',
   borderRadius: '10px',
   border: '3px solid black',
-  height: '610px'
+  height: '450px'
 }
 
-export default function FormMotoboy(props) {
+export default function FormHospede(props) {
   const [validated, setValidated] = useState(false);
-  const [motoboy, setMotoboy] = useState(props.motoboy);
-  const [pedidoSelecionada, setPedidoSelecionada] = useState({});
+  const [hospede, setHospede] = useState(props.hospede);
+  const [telefoneSelecionada, setTelefoneSelecionada] = useState({});
 
   function manipularMudanca(e) {
     const elemForm = e.currentTarget;
     const id = elemForm.id;
     const valor = elemForm.value;
-    setMotoboy({ ...motoboy, [id]: valor });
+    setHospede({ ...hospede, [id]: valor });
 
   }
 
@@ -46,7 +46,7 @@ export default function FormMotoboy(props) {
             headers: {
               "Content-Type": "application/json"
             },
-            body: JSON.stringify(motoboy),
+            body: JSON.stringify(hospede),
           })
             .then((resposta) => {
               return resposta.json();
@@ -57,13 +57,13 @@ export default function FormMotoboy(props) {
                 .then((resposta) => {
                   return resposta.json();
                 })
-                .then((listaMotoboys) => {
-                  if (Array.isArray(listaMotoboys)) {
-                    props.setMotoboys(listaMotoboys);
+                .then((listaHospedes) => {
+                  if (Array.isArray(listaHospedes)) {
+                    props.setHospedes(listaHospedes);
                   }
                 })
                 .catch((erro) => {
-                    window.alert("Erro ao obter a lista de motoboys: " + erro.message);
+                    window.alert("Erro ao obter a lista de hospedes: " + erro.message);
                 });
               window.alert(dados.mensagem);
             })
@@ -75,13 +75,13 @@ export default function FormMotoboy(props) {
           fetch(urlBase, {
             method:"PUT",
             headers:{"Content-Type":"application/json"},
-            body: JSON.stringify(motoboy)
+            body: JSON.stringify(hospede)
           }).then((resposta) => {
             return resposta.json();
           });
           window.alert("Atualizado com sucesso!");
           props.setModoEdicao(false);
-          props.setMotoboy(true);
+          props.setHospede(true);
         }
         
       props.exibirTabela(true);
@@ -91,9 +91,9 @@ export default function FormMotoboy(props) {
   
 
   return (
-    <Form className='mt-5' id='cadastroMotoboys' noValidate validated={validated} onSubmit={handleSubmit} style={boxcadall_style}>
+    <Form className='mt-5' id='cadastroHospedes' noValidate validated={validated} onSubmit={handleSubmit} style={boxcadall_style}>
       <hr />
-      <div className='d-flex justify-content-center'><Form.Label className="fs-3 justify-content-center d-flex" style={boxcad_style}><strong>Cadastro de Motoboys</strong></Form.Label></div>
+      <div className='d-flex justify-content-center'><Form.Label className="fs-3 justify-content-center d-flex" style={boxcad_style}><strong>Cadastro de Hospedes</strong></Form.Label></div>
       <hr />
       <Row className="mb-3">
         <Form.Group as={Col} md="6">
@@ -101,7 +101,7 @@ export default function FormMotoboy(props) {
           <Form.Control
             required
             type="text"
-            value={motoboy.nome}
+            value={hospede.nome}
             id="nome"
             onChange={manipularMudanca}
           />
@@ -115,7 +115,7 @@ export default function FormMotoboy(props) {
         <Form.Control
             required
             type="text"
-            value={motoboy.endereco}
+            value={hospede.endereco}
             id="endereco"
             onChange={manipularMudanca}
           />
@@ -129,7 +129,7 @@ export default function FormMotoboy(props) {
       <Row className="mb-3">
         <Form.Group as={Col} md="4">
           <Form.Label><strong>CPF</strong></Form.Label>
-          <ReactInputMask mask="999.999.999-99" maskChar="" value={motoboy.cpf} onChange={manipularMudanca}>
+          <ReactInputMask mask="999.999.999-99" maskChar="" value={hospede.cpf} onChange={manipularMudanca}>
             {() => <Form.Control type="text"
               placeholder="000.000.000-00"
               required
@@ -142,12 +142,12 @@ export default function FormMotoboy(props) {
       
         <Form.Group as={Col} md="4">
           <Form.Label><strong>Telefone</strong></Form.Label>
-          <ReactInputMask mask='(99) 99999-9999' maskChar="" value={motoboy.telefone} onChange={manipularMudanca}>
+          <ReactInputMask mask="(99) 99999-9999" maskChar="" value={hospede.fone} onChange={manipularMudanca}>
             {() => <Form.Control type="text"
-              placeholder="(00) 00000-0000"
+              placeholder="(00)00000-0000"
               required
               min="0"
-              id="telefone" />}
+              id="fone" />}
           </ReactInputMask>
           <Form.Control.Feedback type="invalid">
             Informe o telefone
@@ -159,21 +159,21 @@ export default function FormMotoboy(props) {
           <Form.Control
             placeholder="ID gerado apos cadastrar"
               disabled
-              value={motoboy.codigo}
+              value={hospede.codigo}
               id="codigo" />
           <Form.Control.Feedback type="invalid">
-            Informe o código do motoboy
+            Informe o código do hospede
           </Form.Control.Feedback>
         </Form.Group>
       </Row>
+
       <Row className="mb-3">
-       
-        <Form.Group as={Col} md="4">
+          <Form.Group as={Col} md="4">
           <Form.Label><strong>Data de Cadastro</strong></Form.Label>
           <Form.Control type="date"
             placeholder="00/00/0000"
             required
-            value={motoboy.dataCadastro}
+            value={hospede.dataCadastro}
             id="dataCadastro"
             onChange={manipularMudanca} />
           <Form.Control.Feedback type="invalid">
@@ -182,25 +182,25 @@ export default function FormMotoboy(props) {
         </Form.Group>
 
           <Form.Group as={Col} md="4">
-          <Form.Label><strong>Cargo</strong></Form.Label>
+          <Form.Label><strong>Telefones</strong></Form.Label>
           <CaixaSelecao endFonteDados={urlBase3}
-                        campoChave={"codigoPed"}
+                        campoChave={"codigoTel"}
                         campoExibicao={"descricao"}
                         funcaoSelecao={(itemSelecionado) => {
-                          setPedidoSelecionada(itemSelecionado);
-                          setMotoboy({ ...motoboy, codPedido: itemSelecionado.codigoPed });
+                          setTelefoneSelecionada(itemSelecionado);
+                          setHospede({ ...hospede, codTelefone: itemSelecionado.codigoTel });
                         }}
-                        id="codPedido"
-                        value={motoboy.codPedido}
+                        id="codTelefone"
+                        value={hospede.codTelefone}
           />
         </Form.Group>
-      </Row>
-      
-        <Row>
+     
+        <Form.Group as={Col} md="2">
         <center>
           <Button variant="secondary" type="button" onClick={() => { props.exibirTabela(true)}}>Voltar</Button>
           <Button type="submit" md={{ offset: 5 }}>Cadastrar</Button>
         </center>
+        </Form.Group>
       </Row>
     </Form>
   );

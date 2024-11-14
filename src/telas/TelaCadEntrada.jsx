@@ -1,85 +1,88 @@
-import FormPedidos from "../formularios/FormPedido";
+import FormEntrada from "../formularios/FormEntrada";
 import { Container } from "react-bootstrap";
-import TabelaPedidos from "../tabelas/tabelaPedidos";
+import TabelaEntradas from "../tabelas/tabelaEntrada";
 import { useState, useEffect } from "react";
 import Pagina from "../templates/Pagina";
-import { urlBase3 } from "../utilitarios/definiçoes";
+import { urlBase2 } from "../utilitarios/definiçoes";
 
-export default function TelaCadastroPedidos(props){
-    const [pedidos, setPedidos] = useState([]);
+export default function TelaCadastroEntradas(props){
+    const [entradas, setEntradas] = useState([]);
     const [exibirTabela, setExibirTabela] = useState(true);
     const [modoEdicao, setModoEdicao] = useState(false);
-    const [pedidoEmEdicao, setPedidoEmEdicao] = useState({
-        codigoPed: "",
-        descricao: ""
+    const [entradaEmEdicao, setEntradaEmEdicao] = useState({
+        registro: "",
+        listaHospede: [],
+        data: "",
+        horaEntrada: "",
+        horaSaida: ""
     });
- 
+    
     useEffect(()=>{
-        fetch(urlBase3, {method:"GET"})
+        fetch(urlBase2, {method:"GET"})
         .then((resposta)=>{return resposta.json()})
         .then((dados)=>{
             if (Array.isArray(dados)){
-                setPedidos(dados);
+                setEntradas(dados);
             }
             else{
-                window.alert("Erro ao fazer requisição do dados! Tente novamente")
+                window.alert("Erro ao fazer requisição dos dados! Tente novamente")
             }
         });
     },[]);
 
-    function prepararPedidoEdicao(pedido){
+    function prepararEntradaEdicao(entrada){
         setModoEdicao(true);
-        setPedidoEmEdicao(pedido);
+        setEntradaEmEdicao(entrada);
         setExibirTabela(false);
     }
-    
-    function excluirPedido(pedido) {
+
+    function excluirEntrada(entrada) {
         if (window.confirm("Confirmar exclusão?")) {
-          fetch(urlBase3, {
+          fetch(urlBase2, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(pedido)
+            body: JSON.stringify(entrada),
           })
             .then((resposta) => resposta.json())
             .then((resposta) => {
-              window.alert("Pedido excluído!");
+              window.alert("Excluido com sucesso!");
       
-              setPedidos((antigos) =>
-                antigos.filter((c) => c.codigoPed !== pedido.codigoPed)
+              setEntradas((antigos) =>
+                antigos.filter((a) => a.registro !== entrada.registro)
               );
             })
             .catch((erro) => {
-              window.alert("Erro ao excluir o pedido: " + erro.message);
+              window.alert("Erro ao excluir : " + erro.message);
             });
         }
       }
-
+      
     return (
         <>
             {
                 exibirTabela? 
                 <Pagina>
                     <Container id="brasao">
-                    <TabelaPedidos listaPedidos={pedidos}
-                                        setPedidos={setPedidos}
+                    <TabelaEntradas listaEntradas={entradas}
+                                        setEntradas={setEntradas}
                                         exibirTabela={setExibirTabela}
-                                        editarPedido={prepararPedidoEdicao}
-                                        excluir={excluirPedido}/> 
+                                        editarEntrada={prepararEntradaEdicao}
+                                        excluir={excluirEntrada}/> 
                     </Container>
                 </Pagina>
                     :
                 <Pagina>
                     <Container id="brasao">
-                        <FormPedidos listaPedidos={pedidos} 
-                                        setPedidos={setPedidos} 
+                        <FormEntrada listaEntradas={entradas} 
+                                        setEntradas={setEntradas} 
                                         exibirTabela={setExibirTabela} 
                                         modoEdicao={modoEdicao}
                                         setModoEdicao={setModoEdicao} 
-                                        pedido={pedidoEmEdicao}
+                                        entrada={entradaEmEdicao}
                                         />
                     </Container>
                  </Pagina>
             }
         </>      
     );
-}    
+}   

@@ -1,6 +1,6 @@
 import { Table, Button, Container } from "react-bootstrap";
 
-export default function TabelaMotoboysSelecionados(props){
+export default function TabelaHospedesSelecionados(props){
     
     return(
         <Container className="mt-5 mb-5">
@@ -12,25 +12,25 @@ export default function TabelaMotoboysSelecionados(props){
                 <th>CPF</th>
                 <th>Telefone</th>
                 <th>Data de cadastro</th>
-                <th>Pedido</th>
+                <th>Telefones</th>
                 <th></th>
                 </tr>
             </thead>
             <tbody>
             {
-                props.listaMotoboys?.map((motoboy) => {
-                    return <tr key={motoboy.codigo}>
-                                <td>{motoboy.codigo}</td>
-                                <td>{motoboy.nome}</td>
-                                <td>{motoboy.cpf}</td>
-                                <td>{motoboy.telefone}</td>
-                                <td>{motoboy.dataCadastro}</td>
-                                <td>{motoboy.codPedido.descricao}</td>
+                props.listaHospedes?.map((hospede) => {
+                    return <tr key={hospede.codigo}>
+                                <td>{hospede.codigo}</td>
+                                <td>{hospede.nome}</td>
+                                <td>{hospede.cpf}</td>
+                                <td>{hospede.fone}</td>
+                                <td>{hospede.dataCadastro}</td>
+                                <td>{hospede.codTelefone.descricao}</td>
                                 <td>
                                     <Button variant="danger" onClick={()=>{
-                                        const lista = props.listaMotoboys.filter((vis) => vis.codigo !== motoboy.codigo);
-                                        props.setEntrega({...props.dadosEntrega, listaMotoboys:lista});
-                                        props.setListaMotoboys(lista);
+                                        const lista = props.listaHospedes.filter((vis) => vis.codigo !== hospede.codigo);
+                                        props.setEntrada({...props.dadosEntrada, listaHospedes:lista});
+                                        props.setListaHospedes(lista);
                                     }} className="ms-2"> 
                                         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="bi bi-trash3" viewBox="0 0 16 16">
                                             <path d="M6.5 1h3a.5.5 0 0 1 .5.5v1H6v-1a.5.5 0 0 1 .5-.5ZM11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3A1.5 1.5 0 0 0 5 1.5v1H2.506a.58.58 0 0 0-.01 0H1.5a.5.5 0 0 0 0 1h.538l.853 10.66A2 2 0 0 0 4.885 16h6.23a2 2 0 0 0 1.994-1.84l.853-10.66h.538a.5.5 0 0 0 0-1h-.995a.59.59 0 0 0-.01 0H11Zm1.958 1-.846 10.58a1 1 0 0 1-.997.92h-6.23a1 1 0 0 1-.997-.92L3.042 3.5h9.916Zm-7.487 1a.5.5 0 0 1 .528.47l.5 8.5a.5.5 0 0 1-.998.06L5 5.03a.5.5 0 0 1 .47-.53Zm5.058 0a.5.5 0 0 1 .47.53l-.5 8.5a.5.5 0 1 1-.998-.06l.5-8.5a.5.5 0 0 1 .528-.47ZM8 4.5a.5.5 0 0 1 .5.5v8.5a.5.5 0 0 1-1 0V5a.5.5 0 0 1 .5-.5Z"/>

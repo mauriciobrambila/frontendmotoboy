@@ -1,88 +1,85 @@
-import FormEntrega from "../formularios/FormEntrega";
+import FormTelefones from "../formularios/FormTelefone";
 import { Container } from "react-bootstrap";
-import TabelaEntregas from "../tabelas/tabelaEntrega";
+import TabelaTelefones from "../tabelas/tabelaTelefones";
 import { useState, useEffect } from "react";
 import Pagina from "../templates/Pagina";
-import { urlBase2 } from "../utilitarios/definiçoes";
+import { urlBase3 } from "../utilitarios/definiçoes";
 
-export default function TelaCadastroEntregas(props){
-    const [entregas, setEntregas] = useState([]);
+export default function TelaCadastroTelefones(props){
+    const [telefones, setTelefones] = useState([]);
     const [exibirTabela, setExibirTabela] = useState(true);
     const [modoEdicao, setModoEdicao] = useState(false);
-    const [entregaEmEdicao, setEntregaEmEdicao] = useState({
-        registro: "",
-        listaMotoboy: [],
-        data: "",
-        horaEntrada: "",
-        horaSaida: ""
+    const [telefoneEmEdicao, setTelefoneEmEdicao] = useState({
+        codigoTel: "",
+        descricao: ""
     });
-    
+ 
     useEffect(()=>{
-        fetch(urlBase2, {method:"GET"})
+        fetch(urlBase3, {method:"GET"})
         .then((resposta)=>{return resposta.json()})
         .then((dados)=>{
             if (Array.isArray(dados)){
-                setEntregas(dados);
+                setTelefones(dados);
             }
             else{
-                window.alert("Erro ao fazer requisição dos dados! Tente novamente")
+                window.alert("Erro ao fazer requisição do dados! Tente novamente")
             }
         });
     },[]);
 
-    function prepararEntregaEdicao(entrega){
+    function prepararTelefoneEdicao(telefone){
         setModoEdicao(true);
-        setEntregaEmEdicao(entrega);
+        setTelefoneEmEdicao(telefone);
         setExibirTabela(false);
     }
-
-    function excluirEntrega(entrega) {
+    
+    function excluirTelefone(telefone) {
         if (window.confirm("Confirmar exclusão?")) {
-          fetch(urlBase2, {
+          fetch(urlBase3, {
             method: "DELETE",
             headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(entrega),
+            body: JSON.stringify(telefone)
           })
             .then((resposta) => resposta.json())
             .then((resposta) => {
-              window.alert("Entrega excluída!");
+              window.alert("Telefone excluído!");
       
-              setEntregas((antigos) =>
-                antigos.filter((a) => a.registro !== entrega.registro)
+              setTelefones((antigos) =>
+                antigos.filter((c) => c.codigoTel !== telefone.codigoTel)
               );
             })
             .catch((erro) => {
-              window.alert("Erro ao excluir aentrega: " + erro.message);
+              window.alert("Erro ao excluir o telefone: " + erro.message);
             });
         }
       }
-      
+
     return (
         <>
             {
                 exibirTabela? 
                 <Pagina>
                     <Container id="brasao">
-                    <TabelaEntregas listaEntregas={entregas}
-                                        setEntregas={setEntregas}
+                    <TabelaTelefones listaTelefones={telefones}
+                                        setTelefones={setTelefones}
                                         exibirTabela={setExibirTabela}
-                                        editarEntrega={prepararEntregaEdicao}
-                                        excluir={excluirEntrega}/> 
+                                        editarTelefone={prepararTelefoneEdicao}
+                                        excluir={excluirTelefone}/> 
                     </Container>
                 </Pagina>
                     :
                 <Pagina>
                     <Container id="brasao">
-                        <FormEntrega listaEntregas={entregas} 
-                                        setEntregas={setEntregas} 
+                        <FormTelefones listaTelefones={telefones} 
+                                        setTelefones={setTelefones} 
                                         exibirTabela={setExibirTabela} 
                                         modoEdicao={modoEdicao}
                                         setModoEdicao={setModoEdicao} 
-                                        entrega={entregaEmEdicao}
+                                        telefone={telefoneEmEdicao}
                                         />
                     </Container>
                  </Pagina>
             }
         </>      
     );
-}
+}    

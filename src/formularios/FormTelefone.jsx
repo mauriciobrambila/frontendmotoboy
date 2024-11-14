@@ -9,25 +9,25 @@ const boxcad_style = {
   padding: '2px',
   borderRadius: '10px',
   border: '2px solid black',
-  width: '380px',
+  width: '300px',
 }
 
 const boxcadall_style = {
   padding: '5px',
   borderRadius: '10px',
   border: '3px solid black',
-  height: '610px'
+  height: '400px'
 }
 
-export default function FormPedido(props) {
+export default function FormTelefone(props) {
   const [validated, setValidated] = useState(false);
-  const [pedido, setPedido] = useState(props.pedido);
+  const [telefone, setTelefone] = useState(props.telefone);
 
   function manipularMudanca(e) {
     const elemForm = e.currentTarget;
     const id = elemForm.id;
     const valor = elemForm.value;
-    setPedido({ ...pedido, [id]: valor });
+    setTelefone({ ...telefone, [id]: valor });
 }
 
   const handleSubmit = (event) => {
@@ -42,7 +42,7 @@ export default function FormPedido(props) {
             headers: {
               "Content-Type": "application/json"
             },
-            body: JSON.stringify(pedido),
+            body: JSON.stringify(telefone),
           })
             .then((resposta) => {
               return resposta.json();
@@ -53,13 +53,13 @@ export default function FormPedido(props) {
                 .then((resposta) => {
                   return resposta.json();
                 })
-                .then((listaPedidos) => {
-                  if (Array.isArray(listaPedidos)) {
-                    props.setPedidos(listaPedidos);
+                .then((listaTelefones) => {
+                  if (Array.isArray(listaTelefones)) {
+                    props.setTelefones(listaTelefones);
                   }
                 })
                 .catch((erro) => {
-                    window.alert("Erro ao obter a lista de pedidos: " + erro.message);
+                    window.alert("Erro ao obter a lista de telefones: " + erro.message);
                 });
               window.alert(dados.mensagem);
             })
@@ -71,13 +71,13 @@ export default function FormPedido(props) {
           fetch(urlBase3, {
             method:"PUT",
             headers:{"Content-Type":"application/json"},
-            body: JSON.stringify(pedido)
+            body: JSON.stringify(telefone)
           }).then((resposta) => {
             return resposta.json();
           });
           window.alert("Atualizado com sucesso!");
           props.setModoEdicao(false);
-          props.setPedido(true);
+          props.setTelefone(true);
         }
         
       props.exibirTabela(true);
@@ -86,36 +86,36 @@ export default function FormPedido(props) {
   }
   
   return (
-    <Form className='mt-5' id='cadastroPedidos' noValidate validated={validated} onSubmit={handleSubmit} style={boxcadall_style}>
+    <Form className='mt-5' id='cadastroTelefones' noValidate validated={validated} onSubmit={handleSubmit} style={boxcadall_style}>
       <hr />
-      <div className='d-flex justify-content-center'><Form.Label className="fs-3 justify-content-center d-flex" style={boxcad_style}><strong>Entregadores</strong></Form.Label></div>
+      <div className='d-flex justify-content-center'><Form.Label className="fs-3 justify-content-center d-flex" style={boxcad_style}><strong>Registre um telefone</strong></Form.Label></div>
       <hr />
 
       <Row className="mb-3">
         <Form.Group as={Col} md="4">
           <Form.Label><strong>ID</strong></Form.Label>
           <Form.Control
-            placeholder="ID gerado apos incluir um entregador"
+            placeholder="ID gerado apos incluir um telefone "
               disabled
-              value={pedido.codigoPed}
-              id="codigoPed" />
+              value={telefone.codigoTel}
+              id="codigoTel" />
         </Form.Group>
       </Row>
 
       <Row className="mb-3">
         <Form.Group as={Col} md="6">
-          <Form.Label><strong>Tipo de entregador</strong></Form.Label>
+          <Form.Label><strong>Telefone com prefixo</strong></Form.Label>
           <Form.Control
-           placeholder="EX: uber, motoboy"
+           placeholder="EX: 00-99999-9999"
             required
             type="text"
-            value={pedido.descricao}
+            value={telefone.descricao}
             id="descricao"
             onChange={manipularMudanca}
           />
           <Form.Control.Feedback type="invalid">
-            Informe quem entregará
-          </Form.Control.Feedback>
+            Informe um valor 
+                      </Form.Control.Feedback>
         </Form.Group>
       </Row>
      
@@ -127,6 +127,6 @@ export default function FormPedido(props) {
           </center>
       </Row>
       
-    </Form>
+    </Form>   
   );      
 }

@@ -5,7 +5,7 @@ import Menu from "./Menu";
 export default function Pagina(props) {
     return(
         <>
-            <Cabecalho texto="Central de motoboys e entregas" />
+            <Cabecalho texto="Hotel Palace" />
             <Menu />
             <Container>{props.children}</Container>
         </>
